@@ -48,6 +48,7 @@ export function sanitizeContent(
         heroTitle,
         heroHighlight: str(b.home?.heroHighlight, 40),
         heroSubtitle: str(b.home?.heroSubtitle, 300),
+        showSampleReviews: b.home?.showSampleReviews !== false,
         primaryButton: str(b.home?.primaryButton, 40) || "Shop now",
         secondaryButton: str(b.home?.secondaryButton, 40) || "Browse gift boxes",
         rotatingWords: list(b.home?.rotatingWords, 10, 40),

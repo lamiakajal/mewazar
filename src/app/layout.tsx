@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk, Noto_Naskh_Arabic } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
@@ -29,6 +29,14 @@ const headingFont = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
+});
+
+// Urdu text (testimonials). Not preloaded, so visitors who never see Urdu do not pay for it.
+const urduFont = Noto_Naskh_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-ur",
+  display: "swap",
+  preload: false,
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -82,7 +90,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bodyFont.variable} ${headingFont.variable}`}
+      className={`${bodyFont.variable} ${headingFont.variable} ${urduFont.variable}`}
       suppressHydrationWarning
     >
       <head>

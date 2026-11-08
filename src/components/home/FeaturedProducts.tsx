@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
 import Reveal from "@/components/ui/Reveal";
+import AutoCarousel from "@/components/ui/AutoCarousel";
 import type { Product } from "@/types";
 
 /** Best sellers grid followed by a swipeable row of new arrivals. */
@@ -59,23 +60,23 @@ export default function FeaturedProducts({ bestSellers, newArrivals }: FeaturedP
               Just arrived
             </h2>
             <p className="hidden text-sm font-semibold text-stone-500 sm:block">
-              Swipe or scroll for more
+              Moves on its own. Hover to pause.
             </p>
           </div>
         </div>
 
-        {/* Scroll-snap row (CSS only, no JavaScript) */}
-        <div
-          className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 sm:px-6 lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
-          tabIndex={0}
-          aria-label="New arrivals"
+        {/* Moves one card at a time every couple of seconds, then starts over */}
+        <AutoCarousel
+          label="New arrivals"
+          intervalMs={2200}
+          className="scroll-pl-4 px-4 pb-6 sm:scroll-pl-6 sm:px-6 lg:scroll-pl-[max(2rem,calc((100vw-80rem)/2+2rem))] lg:px-[max(2rem,calc((100vw-80rem)/2+2rem))]"
         >
           {newArrivals.map((product) => (
-            <div key={product.id} className="w-[17rem] shrink-0 snap-start sm:w-[19rem]">
+            <div key={product.id} className="w-68 shrink-0 snap-start sm:w-76">
               <ProductCard product={product} />
             </div>
           ))}
-        </div>
+        </AutoCarousel>
       </section>
       )}
     </>

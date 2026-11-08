@@ -49,6 +49,7 @@ export function defaultSettings(): StoreSettings {
         "Raw Sidr honey, Gilgit walnuts, Ajwa dates, saffron and more, sorted by hand, packed in small batches and delivered with Cash on Delivery.",
       primaryButton: "Shop the harvest",
       secondaryButton: "Browse gift boxes",
+      showSampleReviews: true,
       rotatingWords: ["Raw Sidr honey", "Gilgit walnuts", "Ajwa dates", "Kashmiri saffron", "Desi cow ghee"],
       marqueeWords: ["Raw Sidr Honey", "Gilgit Walnuts", "California Almonds", "Ajwa Dates", "Kashmiri Saffron", "Desi Cow Ghee", "Hunza Green Tea", "Mountain Figs"],
       marqueeNotes: ["Cash on Delivery", "7-day freshness promise", "Hand-packed in small batches", "No added sugar or preservatives", "Nationwide shipping"],

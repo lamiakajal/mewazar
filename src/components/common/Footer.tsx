@@ -25,7 +25,7 @@ export default async function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-4 pb-8 pt-16 sm:px-6 lg:px-8">
         {/* Call-to-action strip */}
-        <div className="mb-14 flex flex-col items-start justify-between gap-6 rounded-3xl bg-linear-to-r from-gold-500 to-gold-400 p-7 text-gold-ink sm:flex-row sm:items-center sm:p-9">
+        <div className="mb-14 flex flex-col items-start justify-between gap-6 rounded-3xl bg-linear-to-r from-gold-500 to-glow-400 p-7 text-gold-ink sm:flex-row sm:items-center sm:p-9">
           <div>
             <h2 className="font-display text-2xl font-extrabold sm:text-3xl">
               Planning a gift or a bulk order?
@@ -53,7 +53,7 @@ export default async function Footer() {
               from the north of {BRAND.country}, packed in small batches and
               delivered to your door.
             </p>
-            <p className="text-sm font-semibold text-gold-400">
+            <p className="text-sm font-semibold text-glow-400">
               Cash on Delivery and direct bank transfer
             </p>
             {socialLinks.length > 0 && (
@@ -64,7 +64,7 @@ export default async function Footer() {
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="rounded-full border border-white/20 px-3.5 py-1.5 text-xs font-bold capitalize text-white/80 transition hover:border-gold-400 hover:text-gold-300"
+                      className="rounded-full border border-white/20 px-3.5 py-1.5 text-xs font-bold capitalize text-white/80 transition hover:border-glow-400 hover:text-glow-300"
                     >
                       {name}
                     </a>
@@ -81,7 +81,7 @@ export default async function Footer() {
                 <li key={cat.slug}>
                   <Link
                     href={`/shop?cat=${cat.slug}`}
-                    className="transition hover:text-gold-400"
+                    className="transition hover:text-glow-400"
                   >
                     {cat.label}
                   </Link>
@@ -95,7 +95,7 @@ export default async function Footer() {
             <ul className="space-y-2.5 text-sm">
               {SUPPORT_LINKS.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="transition hover:text-gold-400">
+                  <Link href={link.href} className="transition hover:text-glow-400">
                     {link.name}
                   </Link>
                 </li>
@@ -107,19 +107,19 @@ export default async function Footer() {
             <h3 className="mb-4 font-display text-base font-bold text-white">Get in touch</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="transition hover:text-gold-400">
+                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-glow-400" />
+                <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`} className="transition hover:text-glow-400">
                   {contact.phone}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
-                <a href={`mailto:${contact.supportEmail}`} className="break-all transition hover:text-gold-400">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-glow-400" />
+                <a href={`mailto:${contact.supportEmail}`} className="break-all transition hover:text-glow-400">
                   {contact.supportEmail}
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-glow-400" />
                 <span>{contact.address || `Dispatching nationwide across ${BRAND.country}`}</span>
               </li>
             </ul>
@@ -131,10 +131,10 @@ export default async function Footer() {
             &copy; {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
           <p className="flex items-center gap-4">
-            <Link href="/privacy-policy" className="transition hover:text-gold-400">
+            <Link href="/privacy-policy" className="transition hover:text-glow-400">
               Privacy
             </Link>
-            <Link href="/terms" className="transition hover:text-gold-400">
+            <Link href="/terms" className="transition hover:text-glow-400">
               Terms
             </Link>
             <span>Secure checkout</span>

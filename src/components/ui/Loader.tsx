@@ -24,7 +24,7 @@ export default function Loader({ name, slogan, logoUrl }: { name: string; slogan
       <div className="text-center">
         <p className="font-display text-3xl font-extrabold tracking-tight text-white">
           {name.slice(0, split)}
-          <span className="text-gold-400">{name.slice(split)}</span>
+          <span className="text-glow-400">{name.slice(split)}</span>
         </p>
         <p className="mt-1 text-xs font-medium text-white/60">{slogan}</p>
       </div>

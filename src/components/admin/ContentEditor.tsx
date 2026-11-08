@@ -170,6 +170,18 @@ export default function ContentEditor({ initial }: { initial: Sections }) {
         </div>
       </Card>
 
+      <Card title="Testimonials" hint="The customer reviews carousel on your home page.">
+        <label className="flex cursor-pointer items-start gap-3 text-sm font-semibold text-stone-700">
+          <input type="checkbox" checked={s.home.showSampleReviews} onChange={(e) => patchHome({ showSampleReviews: e.target.checked })} className="mt-0.5 h-4 w-4 accent-primary" />
+          <span>
+            Show sample testimonials until I have enough real reviews
+            <span className="mt-1 block text-xs font-normal text-gold-800">
+              These are invented examples for design preview. Switch this OFF before the real launch, so customers only see genuine reviews (approve them in Reviews).
+            </span>
+          </span>
+        </label>
+      </Card>
+
       <Card title="Questions and answers (FAQ)">
         <div className="space-y-3">
           {s.faq.map((f, i) => (
