@@ -48,6 +48,8 @@ export interface HomeContent {
   heroSubtitle: string;
   primaryButton: string;
   secondaryButton: string;
+  /** Show built-in sample testimonials until enough real reviews exist. Turn off before launch. */
+  showSampleReviews: boolean;
   rotatingWords: string[];
   marqueeWords: string[];
   marqueeNotes: string[];

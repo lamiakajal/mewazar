@@ -64,6 +64,14 @@
   --color-leaf-800: #2c4e1f;
   --color-leaf-900: #26421c;
 
+  /* Gold shades for text on the always-dark plum bands (top bar, marquee, footer, promo).
+     Unlike the gold scale above, these do not change in dark mode. */
+  --color-glow-100: #fdedbf;
+  --color-glow-300: #f5cb57;
+  --color-glow-400: #efb52a;
+
+  --font-urdu: var(--font-ur), "Noto Nastaliq Urdu", "Noto Naskh Arabic", ui-serif, serif;
+
   --shadow-soft: 0 1px 2px rgb(30 22 32 / 0.05), 0 8px 24px -8px rgb(30 22 32 / 0.12);
   --shadow-lift: 0 2px 4px rgb(30 22 32 / 0.06), 0 20px 40px -12px rgb(74 25 66 / 0.28);
 }
@@ -309,6 +317,10 @@ html {
   100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
 .confetti-piece { animation: confetti-fall 3s ease-in forwards; }
+
+/* Carousels: scroll by themselves, hide the scrollbar */
+.carousel-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.carousel-scroll::-webkit-scrollbar { display: none; }
 
 .animate-marquee { animation: marquee 38s linear infinite; }
 .animate-marquee-reverse { animation: marquee-reverse 44s linear infinite; }

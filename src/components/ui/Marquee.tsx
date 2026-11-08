@@ -34,7 +34,7 @@ function Row({
               className={
                 large
                   ? "font-display text-4xl font-extrabold tracking-tight text-white sm:text-6xl"
-                  : "text-sm font-semibold text-gold-100 sm:text-base"
+                  : "text-sm font-semibold text-glow-100 sm:text-base"
               }
             >
               {item}

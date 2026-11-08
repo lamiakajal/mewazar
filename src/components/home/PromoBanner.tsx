@@ -36,7 +36,7 @@ export default async function PromoBanner() {
           <p className="mt-4 max-w-md text-white/75">{sale.subtext}</p>
 
           {voucher && (
-            <p className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-2xl border border-dashed border-gold-400/70 bg-white/10 px-4 py-3 text-sm backdrop-blur">
+            <p className="mt-6 inline-flex flex-wrap items-center gap-3 rounded-2xl border border-dashed border-glow-400/70 bg-white/10 px-4 py-3 text-sm backdrop-blur">
               <span className="rounded-lg bg-gold-500 px-2.5 py-1 font-mono text-sm font-bold tracking-wider text-gold-ink">
                 {voucher.code}
               </span>
@@ -57,7 +57,7 @@ export default async function PromoBanner() {
             </Link>
             <Link
               href="/shop?cat=sale"
-              className="inline-flex items-center rounded-full border-2 border-white/30 px-7 py-[0.8rem] text-sm font-bold text-white transition hover:border-gold-400 hover:text-gold-300"
+              className="inline-flex items-center rounded-full border-2 border-white/30 px-7 py-[0.8rem] text-sm font-bold text-white transition hover:border-glow-400 hover:text-glow-300"
             >
               See all sale items
             </Link>

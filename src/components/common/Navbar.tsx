@@ -1,11 +1,6 @@
 "use client";
 
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useSyncExternalStore,
-} from "react";
+import React, { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
@@ -58,28 +53,11 @@ export default function Navbar() {
   const { data: session, status } = useSession();
   const { totalItems, setIsCartOpen } = useCart();
   const { wishlist } = useWishlist();
-  const {
-    contact,
-    shipping,
-    announcement,
-    saleCount,
-    rewards,
-    categories: CATEGORIES,
-    brand,
-  } = useSettings();
+  const { contact, shipping, announcement, saleCount, rewards, categories: CATEGORIES, brand } = useSettings();
   // A "Sale" link appears automatically while at least one product has a discount
-  const NAV_LINKS: {
-    name: string;
-    href: string;
-    mega?: boolean;
-    badge?: string;
-  }[] =
+  const NAV_LINKS: { name: string; href: string; mega?: boolean; badge?: string }[] =
     saleCount > 0
-      ? [
-          ...BASE_LINKS.slice(0, 4),
-          { name: "Sale", href: "/shop?cat=sale", badge: "Hot" },
-          ...BASE_LINKS.slice(4),
-        ]
+      ? [...BASE_LINKS.slice(0, 4), { name: "Sale", href: "/shop?cat=sale", badge: "Hot" }, ...BASE_LINKS.slice(4)]
       : BASE_LINKS;
 
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -107,9 +85,7 @@ export default function Navbar() {
     const controller = new AbortController();
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`, {
-          signal: controller.signal,
-        });
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}`, { signal: controller.signal });
         const data = await res.json();
         setSuggestions(data.results ?? []);
       } catch {
@@ -141,10 +117,7 @@ export default function Navbar() {
   // Close menus on outside click or Escape
   useEffect(() => {
     const onPointer = (e: MouseEvent) => {
-      if (
-        userMenuRef.current &&
-        !userMenuRef.current.contains(e.target as Node)
-      ) {
+      if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
         setUserMenuOpen(false);
       }
     };
@@ -196,16 +169,13 @@ export default function Navbar() {
       </a>
 
       {/* Top info bar */}
-      <div className="site-chrome bg-brand-950 text-gold-100">
+      <div className="site-chrome border-b border-white/5 bg-brand-900 text-glow-100">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-xs sm:px-6 lg:px-8">
           <p className="flex items-center gap-2 font-medium">
-            <Truck className="hidden h-3.5 w-3.5 text-gold-400 sm:block" />
+            <Truck className="hidden h-3.5 w-3.5 text-glow-400 sm:block" />
             {announcement.enabled && announcement.text ? (
               announcement.link ? (
-                <Link
-                  href={announcement.link}
-                  className="hover:text-white hover:underline"
-                >
+                <Link href={announcement.link} className="hover:text-white hover:underline">
                   {announcement.text}
                 </Link>
               ) : (
@@ -213,12 +183,8 @@ export default function Navbar() {
               )
             ) : (
               <span>
-                Free delivery over{" "}
-                <strong>{formatPrice(shipping.freeThreshold)}</strong>
-                <span className="hidden sm:inline">
-                  {" "}
-                  with Cash on Delivery nationwide
-                </span>
+                Free delivery over <strong>{formatPrice(shipping.freeThreshold)}</strong>
+                <span className="hidden sm:inline"> with Cash on Delivery nationwide</span>
               </span>
             )}
           </p>
@@ -228,7 +194,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="hidden items-center gap-1.5 font-semibold transition hover:text-white sm:flex"
           >
-            <Phone className="h-3 w-3 text-gold-400" />
+            <Phone className="h-3 w-3 text-glow-400" />
             <span>Helpline {contact.phone}</span>
           </a>
         </div>
@@ -246,17 +212,8 @@ export default function Navbar() {
             scrolled ? "h-16" : "h-20"
           }`}
         >
-          <Link
-            href="/"
-            onClick={closeAll}
-            aria-label={`${brand.name} home`}
-            className="shrink-0"
-          >
-            <Logo
-              name={brand.name}
-              tagline={brand.tagline}
-              logoUrl={brand.logoUrl}
-            />
+          <Link href="/" onClick={closeAll} aria-label={`${brand.name} home`} className="shrink-0">
+            <Logo name={brand.name} tagline={brand.tagline} logoUrl={brand.logoUrl} />
           </Link>
 
           {/* Desktop navigation */}
@@ -300,9 +257,7 @@ export default function Navbar() {
                         >
                           <span
                             className="hex h-9 w-8 shrink-0"
-                            style={{
-                              background: `linear-gradient(160deg, ${cat.from}, ${cat.to})`,
-                            }}
+                            style={{ background: `linear-gradient(160deg, ${cat.from}, ${cat.to})` }}
                           />
                           <span className="min-w-0">
                             <span className="block text-sm font-bold text-stone-800 group-hover/item:text-heading">
@@ -360,10 +315,7 @@ export default function Navbar() {
               aria-label={`Open cart${cartCount ? `, ${cartCount} items` : ""}`}
               className="relative grid h-10 w-10 place-items-center rounded-full text-stone-600 transition hover:bg-stone-100 hover:text-heading cursor-pointer"
             >
-              <ShoppingBag
-                key={`bag-${cartCount}`}
-                className={`h-5 w-5 ${cartCount > 0 ? "animate-wiggle" : ""}`}
-              />
+              <ShoppingBag key={`bag-${cartCount}`} className={`h-5 w-5 ${cartCount > 0 ? "animate-wiggle" : ""}`} />
               {cartCount > 0 && (
                 <span
                   key={`badge-${cartCount}`}
@@ -399,15 +351,10 @@ export default function Navbar() {
                 {userMenuOpen && (
                   <div className="animate-fade-in absolute right-0 z-50 mt-2 w-56 overflow-hidden rounded-2xl border border-stone-200 bg-surface py-2 shadow-lift">
                     <div className="border-b border-stone-100 px-4 py-2">
-                      <p className="truncate text-sm font-bold text-stone-800">
-                        {session?.user?.name}
-                      </p>
-                      <p className="truncate text-xs text-stone-500">
-                        {session?.user?.email}
-                      </p>
+                      <p className="truncate text-sm font-bold text-stone-800">{session?.user?.name}</p>
+                      <p className="truncate text-xs text-stone-500">{session?.user?.email}</p>
                     </div>
-                    {(session?.user as { role?: string } | undefined)?.role ===
-                      "admin" && (
+                    {(session?.user as { role?: string } | undefined)?.role === "admin" && (
                       <Link
                         href="/admin"
                         onClick={closeAll}
@@ -473,11 +420,7 @@ export default function Navbar() {
         {/* Search panel */}
         {searchOpen && (
           <div className="animate-fade-in border-t border-stone-200/70 bg-surface/95 px-4 py-4 sm:px-6">
-            <form
-              onSubmit={submitSearch}
-              className="mx-auto max-w-3xl"
-              role="search"
-            >
+            <form onSubmit={submitSearch} className="mx-auto max-w-3xl" role="search">
               <div className="relative">
                 <Search className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-400" />
                 <input
@@ -507,12 +450,8 @@ export default function Navbar() {
                         className="flex items-center justify-between gap-3 px-4 py-3 transition hover:bg-stone-50"
                       >
                         <span className="min-w-0">
-                          <span className="block truncate text-sm font-bold text-stone-800">
-                            {p.name}
-                          </span>
-                          <span className="text-xs text-stone-500">
-                            {p.category}
-                          </span>
+                          <span className="block truncate text-sm font-bold text-stone-800">{p.name}</span>
+                          <span className="text-xs text-stone-500">{p.category}</span>
                         </span>
                         <span className="shrink-0 text-sm font-bold text-heading">
                           From {formatPrice(p.price)}
@@ -542,12 +481,7 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div
-          className="fixed inset-0 z-9998 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu"
-        >
+        <div className="fixed inset-0 z-9998 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
           <button
             type="button"
             aria-label="Close menu"
@@ -556,11 +490,7 @@ export default function Navbar() {
           />
           <div className="animate-slide-in-right absolute inset-y-0 right-0 flex w-[85%] max-w-sm flex-col bg-surface shadow-2xl">
             <div className="flex items-center justify-between border-b border-stone-200 px-5 py-4">
-              <Logo
-                name={brand.name}
-                logoUrl={brand.logoUrl}
-                showTagline={false}
-              />
+              <Logo name={brand.name} logoUrl={brand.logoUrl} showTagline={false} />
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
@@ -579,9 +509,7 @@ export default function Navbar() {
                       href={link.href}
                       onClick={closeAll}
                       className={`flex items-center justify-between rounded-xl px-3 py-3 text-base font-bold transition ${
-                        isActive(link.href)
-                          ? "bg-gold-100 text-gold-800"
-                          : "text-stone-800 hover:bg-stone-50"
+                        isActive(link.href) ? "bg-gold-100 text-gold-800" : "text-stone-800 hover:bg-stone-50"
                       }`}
                     >
                       <span>{link.name}</span>
@@ -595,9 +523,7 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              <p className="mb-2 mt-6 px-3 text-xs font-bold text-stone-500">
-                Shop by category
-              </p>
+              <p className="mb-2 mt-6 px-3 text-xs font-bold text-stone-500">Shop by category</p>
               <ul className="grid grid-cols-2 gap-2">
                 {CATEGORIES.map((cat) => (
                   <li key={cat.slug}>
@@ -608,9 +534,7 @@ export default function Navbar() {
                     >
                       <span
                         className="hex h-5 w-4.5 shrink-0"
-                        style={{
-                          background: `linear-gradient(160deg, ${cat.from}, ${cat.to})`,
-                        }}
+                        style={{ background: `linear-gradient(160deg, ${cat.from}, ${cat.to})` }}
                       />
                       <span className="truncate">{cat.label}</span>
                     </Link>
