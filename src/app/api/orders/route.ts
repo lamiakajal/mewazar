@@ -13,6 +13,12 @@ import ProductModel from "@/models/Product";
 import { sendOrderPlacedEmails } from "@/lib/email";
 import Order from "@/models/Order";
 
+// Payment methods the Order model accepts
+const ORDER_PAYMENT_METHODS = ["cod", "jazzcash", "easypaisa", "sadapay", "meezan"] as const;
+type OrderPaymentMethod = (typeof ORDER_PAYMENT_METHODS)[number];
+const isOrderPaymentMethod = (id: string): id is OrderPaymentMethod =>
+  (ORDER_PAYMENT_METHODS as readonly string[]).includes(id);
+
 const MAX_LINE_QUANTITY = 20;
 const MAX_LINES = 40;
 
@@ -45,39 +51,6 @@ export async function GET() {
     }
 
     await connectToDatabase();
-
-    // Reserve stock atomically. Each update only succeeds if enough stock is left,
-    // so two customers cannot buy the last unit at the same time.
-    const trackStock = await catalogIsInDatabase();
-    const reserved: { productId: string; weight: string; quantity: number }[] = [];
-    const releaseStock = async () => {
-      for (const r of reserved) {
-        await ProductModel.updateOne(
-          { id: r.productId, "variants.weight": r.weight },
-          { $inc: { "variants.$.stock": r.quantity } },
-        );
-      }
-    };
-
-    if (trackStock) {
-      for (const line of items) {
-        const result = await ProductModel.updateOne(
-          {
-            id: line.productId,
-            variants: { $elemMatch: { weight: line.weight, stock: { $gte: line.quantity } } },
-          },
-          { $inc: { "variants.$.stock": -line.quantity } },
-        );
-        if (result.modifiedCount !== 1) {
-          await releaseStock();
-          return NextResponse.json(
-            { error: `Sorry, ${line.name} (${line.weight}) just sold out. Please update your cart.` },
-            { status: 409 },
-          );
-        }
-        reserved.push({ productId: line.productId, weight: line.weight, quantity: line.quantity });
-      }
-    }
 
     const userId = (session.user as { id?: string }).id;
     const email = session.user.email?.toLowerCase();
@@ -185,11 +158,10 @@ export async function POST(req: Request) {
     const paymentMethod = clean(body.paymentMethod, 20);
     const settings = await getSettings();
     const method = settings.payments.find((p) => p.id === paymentMethod && p.isActive);
-    // The order schema accepts these methods only
-    const allowed = ["cod", "jazzcash", "easypaisa", "sadapay", "meezan"];
-    if (!method || !allowed.includes(method.id)) {
+    if (!method || !isOrderPaymentMethod(method.id)) {
       return NextResponse.json({ error: "Unsupported payment method" }, { status: 400 });
     }
+    const methodId: OrderPaymentMethod = method.id;
 
     // 4. Server-side totals
     const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -291,7 +263,7 @@ export async function POST(req: Request) {
     }
 
     // 5. Save, retrying on the (very unlikely) order number collision
-    let saved = null;
+    let saved: { orderNumber: string } | null = null;
     for (let attempt = 0; attempt < 3 && !saved; attempt++) {
       try {
         saved = await Order.create({
@@ -300,7 +272,7 @@ export async function POST(req: Request) {
           isGuest: !session?.user,
           items,
           shippingAddress,
-          paymentMethod: method.id,
+          paymentMethod: methodId,
           transactionId: clean(body.transactionId, 80),
           voucherCode: pricing.appliedVoucherCode ?? "",
           subtotal: pricing.subtotal,
@@ -337,7 +309,7 @@ export async function POST(req: Request) {
         orderNumber: saved.orderNumber,
         items,
         shippingAddress,
-        paymentMethod: method.id,
+        paymentMethod: methodId,
         transactionId: clean(body.transactionId, 80),
         subtotal: pricing.subtotal,
         discount: pricing.totalDiscount,
