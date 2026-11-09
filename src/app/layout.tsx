@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Hanken_Grotesk, Noto_Naskh_Arabic } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Hanken_Grotesk,
+  Noto_Naskh_Arabic,
+} from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
 import Footer from "@/components/common/Footer";
@@ -66,15 +70,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f7f2" },
-    { media: "(prefers-color-scheme: dark)", color: "#150c16" },
-  ],
+  themeColor: "#f8f7f2",
 };
 
-// Runs before first paint: applies the saved/system theme (no flash) and
-// marks repeat visits in the same session so the splash screen is skipped.
-const bootScript = `(function(){try{var d=document.documentElement;var t=localStorage.getItem('mewazar-theme');var dark=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(dark)d.classList.add('dark');if(sessionStorage.getItem('mewazar-visited'))d.classList.add('no-loader');else sessionStorage.setItem('mewazar-visited','1');}catch(e){}})();`;
+// Runs before first paint. The store always opens in light mode, whatever the device's
+// own setting is. Dark mode is used only when the visitor switched it on with the toggle
+// (saved in this browser). It also marks repeat visits so the splash screen is skipped.
+const bootScript = `(function(){try{var d=document.documentElement;if(localStorage.getItem('mewazar-theme')==='dark')d.classList.add('dark');if(sessionStorage.getItem('mewazar-visited'))d.classList.add('no-loader');else sessionStorage.setItem('mewazar-visited','1');}catch(e){}})();`;
 
 // Pages re-read the catalog and settings at most once a minute (saving in /admin refreshes sooner)
 export const revalidate = 60;
@@ -84,8 +86,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [settings, products] = await Promise.all([getSettings(), getAllProducts()]);
-  const saleCount = products.filter((p) => p.variants.some((v) => v.comparePrice && v.comparePrice > v.price)).length;
+  const [settings, products] = await Promise.all([
+    getSettings(),
+    getAllProducts(),
+  ]);
+  const saleCount = products.filter((p) =>
+    p.variants.some((v) => v.comparePrice && v.comparePrice > v.price),
+  ).length;
 
   return (
     <html
@@ -96,24 +103,31 @@ export default async function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
-      <body className="bg-canvas font-sans text-stone-900 antialiased" suppressHydrationWarning>
-        <Loader name={settings.brand.name} slogan={BRAND.slogan} logoUrl={settings.brand.logoUrl} />
+      <body
+        className="bg-canvas font-sans text-stone-900 antialiased"
+        suppressHydrationWarning
+      >
+        <Loader
+          name={settings.brand.name}
+          slogan={BRAND.slogan}
+          logoUrl={settings.brand.logoUrl}
+        />
         <ScrollProgress />
         <AuthProvider>
           <SettingsProvider value={toPublicSettings(settings, saleCount)}>
-          <CartProvider>
-            <WishlistProvider>
-              <Navbar />
-              <main id="main" className="min-h-screen">
-                {children}
-              </main>
-              <Footer />
-              <CartDrawer />
-              <CartToast />
-              <WhatsAppButton />
-              <BackToTop />
-            </WishlistProvider>
-          </CartProvider>
+            <CartProvider>
+              <WishlistProvider>
+                <Navbar />
+                <main id="main" className="min-h-screen">
+                  {children}
+                </main>
+                <Footer />
+                <CartDrawer />
+                <CartToast />
+                <WhatsAppButton />
+                <BackToTop />
+              </WishlistProvider>
+            </CartProvider>
           </SettingsProvider>
         </AuthProvider>
       </body>
