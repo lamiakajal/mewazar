@@ -2,6 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import CheckoutView from "@/components/checkout/CheckoutView";
 import { getSettings } from "@/lib/settings";
+import { getGateway } from "@/lib/payments/registry";
 
 export const metadata: Metadata = {
   title: "Secure checkout",
@@ -18,8 +19,18 @@ export default async function CheckoutPage() {
 
   return (
     <CheckoutView
-      payments={settings.payments.filter((p) => p.isActive)}
-      shipping={{ fee: settings.shipping.fee, freeThreshold: settings.shipping.freeThreshold }}
+      payments={settings.payments
+        .filter((p) => p.isActive)
+        .map((p) => ({
+          ...p,
+          gateway: getGateway(p.gateway)?.isConfigured()
+            ? p.gateway
+            : undefined,
+        }))}
+      shipping={{
+        fee: settings.shipping.fee,
+        freeThreshold: settings.shipping.freeThreshold,
+      }}
       rewards={settings.rewards}
       orders={settings.orders}
     />
