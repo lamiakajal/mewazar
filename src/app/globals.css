@@ -8,10 +8,11 @@
    Palette: Fig (deep plum) + Honey gold + Leaf green on a soft paper base
 ------------------------------------------------------------------- */
 @theme {
-  --font-sans: var(--font-body), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, sans-serif;
-  --font-display: var(--font-heading), ui-serif, Georgia, "Times New Roman",
-    serif;
+  --font-sans:
+    var(--font-body), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-display:
+    var(--font-heading), ui-serif, Georgia, "Times New Roman", serif;
 
   /* Neutrals (warm plum-grey). Overridden in dark mode below. */
   --color-stone-50: #f8f6f4;
@@ -70,10 +71,13 @@
   --color-glow-300: #f5cb57;
   --color-glow-400: #efb52a;
 
-  --font-urdu: var(--font-ur), "Noto Nastaliq Urdu", "Noto Naskh Arabic", ui-serif, serif;
+  --font-urdu:
+    var(--font-ur), "Noto Nastaliq Urdu", "Noto Naskh Arabic", ui-serif, serif;
 
-  --shadow-soft: 0 1px 2px rgb(30 22 32 / 0.05), 0 8px 24px -8px rgb(30 22 32 / 0.12);
-  --shadow-lift: 0 2px 4px rgb(30 22 32 / 0.06), 0 20px 40px -12px rgb(74 25 66 / 0.28);
+  --shadow-soft:
+    0 1px 2px rgb(30 22 32 / 0.05), 0 8px 24px -8px rgb(30 22 32 / 0.12);
+  --shadow-lift:
+    0 2px 4px rgb(30 22 32 / 0.06), 0 20px 40px -12px rgb(74 25 66 / 0.28);
 }
 
 /* Semantic tokens that switch with the theme */
@@ -181,12 +185,20 @@ html {
   background: var(--color-stone-100);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--color-gold-400), var(--color-brand-600));
+  background: linear-gradient(
+    180deg,
+    var(--color-gold-400),
+    var(--color-brand-600)
+  );
   border-radius: 999px;
   border: 2px solid var(--color-stone-100);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--color-gold-500), var(--color-brand-700));
+  background: linear-gradient(
+    180deg,
+    var(--color-gold-500),
+    var(--color-brand-700)
+  );
 }
 
 /* Hexagon helpers (pointy-top honeycomb cell) */
@@ -202,109 +214,234 @@ html {
    Motion
 ------------------------------------------------------------------- */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 @keyframes marquee-reverse {
-  from { transform: translateX(-50%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 @keyframes hex-rise {
-  from { opacity: 0; transform: translateY(24px) scale(0.92); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 @keyframes slide-in-right {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 @keyframes pop {
-  0% { transform: scale(0.85); opacity: 0; }
-  60% { transform: scale(1.04); opacity: 1; }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 @keyframes shimmer {
-  from { background-position: -200% 0; }
-  to { background-position: 200% 0; }
+  from {
+    background-position: -200% 0;
+  }
+  to {
+    background-position: 200% 0;
+  }
 }
 @keyframes spin-slow {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgb(233 163 26 / 0.55); }
-  100% { box-shadow: 0 0 0 16px rgb(233 163 26 / 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgb(233 163 26 / 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgb(233 163 26 / 0);
+  }
 }
 @keyframes drip {
-  0%, 100% { transform: translateY(0) scaleY(1); }
-  50% { transform: translateY(5px) scaleY(1.08); }
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  50% {
+    transform: translateY(5px) scaleY(1.08);
+  }
 }
 @keyframes loader-fill {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 @keyframes loader-out {
-  to { opacity: 0; visibility: hidden; }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 @keyframes gradient-pan {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes word-in {
-  from { opacity: 0; transform: translateY(60%); }
-  to { opacity: 1; transform: none; }
+  from {
+    opacity: 0;
+    transform: translateY(60%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0); }
-  20% { transform: rotate(-14deg); }
-  40% { transform: rotate(10deg); }
-  60% { transform: rotate(-6deg); }
-  80% { transform: rotate(3deg); }
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-14deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(3deg);
+  }
 }
 @keyframes hex-drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(14px, -22px) rotate(25deg); }
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(14px, -22px) rotate(25deg);
+  }
 }
 @keyframes shine-sweep {
-  from { transform: translateX(-120%) skewX(-20deg); }
-  to { transform: translateX(260%) skewX(-20deg); }
+  from {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+  to {
+    transform: translateX(260%) skewX(-20deg);
+  }
 }
-.animate-page-in { animation: page-in 0.45s ease-out both; }
-.animate-word-in { animation: word-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.animate-wiggle { animation: wiggle 0.7s ease-in-out; }
-.animate-hex-drift { animation: hex-drift 11s ease-in-out infinite; }
+.animate-page-in {
+  animation: page-in 0.45s ease-out both;
+}
+.animate-word-in {
+  animation: word-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.animate-wiggle {
+  animation: wiggle 0.7s ease-in-out;
+}
+.animate-hex-drift {
+  animation: hex-drift 11s ease-in-out infinite;
+}
 
 /* Light sweep across a button on hover */
-.btn-shine { position: relative; overflow: hidden; isolation: isolate; }
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
 .btn-shine::after {
   content: "";
   position: absolute;
   inset: 0 auto 0 0;
   width: 40%;
-  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(255 255 255 / 0.35),
+    transparent
+  );
   transform: translateX(-120%) skewX(-20deg);
   z-index: -1;
 }
-.btn-shine:hover::after { animation: shine-sweep 0.9s ease; }
+.btn-shine:hover::after {
+  animation: shine-sweep 0.9s ease;
+}
 
 /* Moving colour on a headline word */
 .text-shimmer {
-  background: linear-gradient(90deg, var(--color-gold-600), var(--color-brand-500), var(--color-gold-500), var(--color-gold-600));
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-600),
+    var(--color-brand-500),
+    var(--color-gold-500),
+    var(--color-gold-600)
+  );
   background-size: 250% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -313,55 +450,120 @@ html {
 }
 
 @keyframes confetti-fall {
-  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
 }
-.confetti-piece { animation: confetti-fall 3s ease-in forwards; }
+.confetti-piece {
+  animation: confetti-fall 3s ease-in forwards;
+}
 
 /* Carousels: scroll by themselves, hide the scrollbar */
-.carousel-scroll { scrollbar-width: none; -ms-overflow-style: none; }
-.carousel-scroll::-webkit-scrollbar { display: none; }
+.carousel-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
 
-.animate-marquee { animation: marquee 38s linear infinite; }
-.animate-marquee-reverse { animation: marquee-reverse 44s linear infinite; }
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 44s linear infinite;
+}
 .marquee-pause:hover .animate-marquee,
-.marquee-pause:hover .animate-marquee-reverse { animation-play-state: paused; }
+.marquee-pause:hover .animate-marquee-reverse {
+  animation-play-state: paused;
+}
 
-.animate-float { animation: float-y 6s ease-in-out infinite; }
-.animate-float-slow { animation: float-y 9s ease-in-out infinite; }
-.animate-hex-rise { animation: hex-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.animate-fade-up { animation: fade-up 0.6s ease-out both; }
-.animate-fade-in { animation: fade-in 0.25s ease-out both; }
-.animate-slide-in-right { animation: slide-in-right 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.animate-pop { animation: pop 0.35s ease-out both; }
-.animate-spin-slow { animation: spin-slow 28s linear infinite; }
-.animate-pulse-ring { animation: pulse-ring 2.2s ease-out infinite; }
-.animate-drip { animation: drip 2.6s ease-in-out infinite; transform-origin: top; }
-.animate-gradient { background-size: 200% 200%; animation: gradient-pan 9s ease infinite; }
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+.animate-float-slow {
+  animation: float-y 9s ease-in-out infinite;
+}
+.animate-hex-rise {
+  animation: hex-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out both;
+}
+.animate-fade-in {
+  animation: fade-in 0.25s ease-out both;
+}
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.animate-pop {
+  animation: pop 0.35s ease-out both;
+}
+.animate-spin-slow {
+  animation: spin-slow 28s linear infinite;
+}
+.animate-pulse-ring {
+  animation: pulse-ring 2.2s ease-out infinite;
+}
+.animate-drip {
+  animation: drip 2.6s ease-in-out infinite;
+  transform-origin: top;
+}
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-pan 9s ease infinite;
+}
 
 .skeleton {
-  background: linear-gradient(90deg, var(--color-stone-100) 25%, var(--color-stone-200) 50%, var(--color-stone-100) 75%);
+  background: linear-gradient(
+    90deg,
+    var(--color-stone-100) 25%,
+    var(--color-stone-200) 50%,
+    var(--color-stone-100) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.6s linear infinite;
 }
 
 /* First-visit loader: pure CSS so it never depends on JS to disappear */
-.site-loader { animation: loader-out 0.5s ease 1.6s forwards; }
-.site-loader .loader-fill { animation: loader-fill 1.3s cubic-bezier(0.65, 0, 0.35, 1) 0.15s both; }
-html.no-loader .site-loader { display: none; }
+.site-loader {
+  animation: loader-out 0.5s ease 1.6s forwards;
+}
+.site-loader .loader-fill {
+  animation: loader-fill 1.3s cubic-bezier(0.65, 0, 0.35, 1) 0.15s both;
+}
+html.no-loader .site-loader {
+  display: none;
+}
 
 /* Printing (invoices): hide the storefront chrome */
 @media print {
-  .site-chrome { display: none !important; }
-  body { background: #fff !important; }
+  .site-chrome {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .animate-marquee, .animate-marquee-reverse { animation: none !important; }
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation: none !important;
+  }
 }

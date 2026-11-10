@@ -70,13 +70,15 @@ export async function generateMetadata(): Promise<Metadata> {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#f8f7f2",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f7f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#150c16" },
+  ],
 };
 
-// Runs before first paint. The store always opens in light mode, whatever the device's
-// own setting is. Dark mode is used only when the visitor switched it on with the toggle
-// (saved in this browser). It also marks repeat visits so the splash screen is skipped.
-const bootScript = `(function(){try{var d=document.documentElement;if(localStorage.getItem('mewazar-theme')==='dark')d.classList.add('dark');if(sessionStorage.getItem('mewazar-visited'))d.classList.add('no-loader');else sessionStorage.setItem('mewazar-visited','1');}catch(e){}})();`;
+// Runs before first paint: applies the saved/system theme (no flash) and
+// marks repeat visits in the same session so the splash screen is skipped.
+const bootScript = `(function(){try{var d=document.documentElement;var t=localStorage.getItem('mewazar-theme');var dark=t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;if(dark)d.classList.add('dark');if(sessionStorage.getItem('mewazar-visited'))d.classList.add('no-loader');else sessionStorage.setItem('mewazar-visited','1');}catch(e){}})();`;
 
 // Pages re-read the catalog and settings at most once a minute (saving in /admin refreshes sooner)
 export const revalidate = 60;
