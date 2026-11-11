@@ -202,7 +202,7 @@ export const allProducts: Product[] = [
     name: "Mountain Walnuts (Akhrot Giri)",
     slug: "mountain-walnuts-akhrot",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:walnut"],
+    images: ["/products/mountain-walnuts-akhrot.webp"],
     description:
       "Fresh light-kernel Gilgit mountain walnuts packed with plant-based Omega-3 fatty acids and memory enhancers.",
     rating: 5.0,
