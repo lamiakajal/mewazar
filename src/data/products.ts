@@ -694,7 +694,7 @@ export const allProducts: Product[] = [
     slug: "extra-virgin-olive-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/extra-virgin-olive-oil.webp"],
     description:
       "Fruity, peppery first cold-press oil for salads, dips and finishing. Stored in a dark bottle.",
     rating: 4.8,
