@@ -531,7 +531,7 @@ export const allProducts: Product[] = [
     category: "Spices",
     isFeatured: true,
     isNew: true,
-    images: ["art:spices:saffron"],
+    images: ["/products/kashmiri-mongra-saffron.webp"],
     description:
       "Deep red, hand-picked saffron threads with a strong aroma and colour. A few strands go a long way.",
     rating: 5.0,
@@ -548,7 +548,7 @@ export const allProducts: Product[] = [
     slug: "black-cumin-kalonji",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:cumin"],
+    images: ["/products/black-cumin-kalonji.webp"],
     description:
       "Aromatic whole kalonji seeds with a peppery, slightly bitter flavour for breads, pickles and curries.",
     rating: 4.7,
@@ -564,7 +564,7 @@ export const allProducts: Product[] = [
     slug: "himalayan-pink-salt-coarse",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:salt"],
+    images: ["/products/himalayan-pink-salt-coarse.webp"],
     description:
       "Coarse mineral-rich crystals for grinders and everyday cooking. Unrefined and free from additives.",
     rating: 4.8,
@@ -580,7 +580,7 @@ export const allProducts: Product[] = [
     slug: "green-cardamom-elaichi",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:cardamom"],
+    images: ["/products/green-cardamom-elaichi.webp"],
     description:
       "Plump, fragrant green pods for chai, desserts and rice dishes. Sealed in an airtight tin to lock in aroma.",
     rating: 4.8,
