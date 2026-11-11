@@ -345,7 +345,7 @@ export const allProducts: Product[] = [
     name: "Organic Raw White Sesame Seeds (Til)",
     slug: "organic-raw-white-sesame-seeds-til",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/organic-raw-white-sesame-seeds-til.webp"],
     description:
       "Pristine natural white sesame seeds. Exceptional plant-based calcium provider for bones and winter traditional sweets.",
     rating: 4.7,
