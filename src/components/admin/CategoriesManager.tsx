@@ -127,6 +127,35 @@ export default function CategoriesManager({
                   <input value={c.badge ?? ""} onChange={(e) => patch(i, { badge: e.target.value })} className={`${inputClass} mt-1`} placeholder="Sale" maxLength={12} />
                 </label>
               </div>
+              <div className="flex flex-wrap items-end gap-2 sm:col-span-2">
+                <label className="min-w-0 flex-1 text-xs font-bold text-stone-600">
+                  Cover photo (optional)
+                  <input
+                    value={c.image ?? ""}
+                    onChange={(e) => patch(i, { image: e.target.value })}
+                    className={`${inputClass} mt-1`}
+                    placeholder="Leave empty to use the best product photo"
+                  />
+                </label>
+                <label className="cursor-pointer rounded-full border border-stone-300 px-4 py-2 text-xs font-bold text-stone-700 hover:border-gold-500">
+                  Upload
+                  <input
+                    type="file"
+                    accept="image/png,image/jpeg,image/webp"
+                    hidden
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      const body = new FormData();
+                      body.append("file", file);
+                      const res = await fetch("/api/admin/upload", { method: "POST", body });
+                      const data = await res.json().catch(() => ({}));
+                      if (res.ok) patch(i, { image: data.url });
+                      else setMessage({ text: data.error || "Upload failed", ok: false });
+                    }}
+                  />
+                </label>
+              </div>
               <p className="text-[11px] text-stone-500 sm:col-span-2">
                 Web address: /shop?cat={c.slug} &middot; {count} product{count === 1 ? "" : "s"}
               </p>
