@@ -41,7 +41,7 @@ export const allProducts: Product[] = [
     name: "Organic Acacia White Flower Honey",
     slug: "organic-acacia-white-flower-honey",
     category: "Honey",
-    images: ["art:honey:honey"],
+    images: ["/products/organic-acacia-white-flower-honey.webp"],
     description:
       "Clear, delicate floral nectar with low glycemic index. Naturally fluid, subtly sweet, and light amber in texture.",
     rating: 4.8,
