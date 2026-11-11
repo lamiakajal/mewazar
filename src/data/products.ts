@@ -438,7 +438,7 @@ export const allProducts: Product[] = [
     name: "Student Memory & Focus Bundle",
     slug: "student-memory-focus-bundle",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/student-memory-focus-bundle.webp"],
     description:
       "Exam preparation pack containing 500g Mountain Walnuts and 500g California Jumbo Almonds for sustained mental focus.",
     rating: 4.9,
