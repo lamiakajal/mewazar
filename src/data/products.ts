@@ -645,7 +645,7 @@ export const allProducts: Product[] = [
     slug: "masala-chai-blend",
     category: "Tea",
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/masala-chai-blend.webp"],
     description:
       "Strong black tea with ginger, cardamom and clove, ready for a proper milky cup of chai.",
     rating: 4.8,
