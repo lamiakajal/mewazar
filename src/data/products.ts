@@ -8,7 +8,7 @@ export const allProducts: Product[] = [
     name: "Kashmiri Organic Wild Honey",
     slug: "kashmiri-organic-wild-honey",
     category: "Honey",
-    images: ["art:honey:honey"],
+    images: ["/products/kashmiri-organic-wild-honey.webp"],
     description:
       "Raw, 100% unfiltered and harvested straight from pristine Neelum Valley wild mountain blooms without heating or processing.",
     rating: 4.9,
