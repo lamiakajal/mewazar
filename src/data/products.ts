@@ -629,7 +629,7 @@ export const allProducts: Product[] = [
     slug: "chamomile-mint-herbal-blend",
     category: "Tea",
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/chamomile-mint-herbal-blend.webp"],
     description:
       "A caffeine-free blend of chamomile flowers and cool peppermint for slow evenings.",
     rating: 4.7,
