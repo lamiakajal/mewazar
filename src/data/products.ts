@@ -154,7 +154,7 @@ export const allProducts: Product[] = [
     name: "Whole Roasted Cashews (Kaju)",
     slug: "whole-roasted-cashews-kaju",
     category: "Nuts",
-    images: ["art:nuts:cashew"],
+    images: ["/products/whole-roasted-cashews-kaju.webp"],
     description:
       "W240 export grade creamy white cashews. Lightly toasted to enhance their naturally buttery and rich texture.",
     rating: 4.9,
