@@ -50,6 +50,7 @@ export async function PUT(req: Request) {
       from,
       to,
       ...(s(c.badge, 12) ? { badge: s(c.badge, 12) } : {}),
+      ...(/^(\/|https:\/\/)/.test(s(c.image, 300)) ? { image: s(c.image, 300) } : {}),
     });
   }
 
@@ -64,7 +65,7 @@ export async function PUT(req: Request) {
   }
 
   await SettingsModel.findOneAndUpdate({ key: "main" }, { $set: { "data.categories": categories } }, { upsert: true });
-  revalidatePath("/", "layout");
   await logAction("categories.update");
+  revalidatePath("/", "layout");
   return NextResponse.json({ ok: true });
 }

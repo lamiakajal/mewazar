@@ -10,11 +10,13 @@ export interface CategoryMeta {
   from: string;
   to: string;
   badge?: string;
+  /** Optional cover photo for the home page tile. Without one, the best product photo is used. */
+  image?: string;
 }
 
 // Single source of truth for categories (navbar, footer, shop filters, home grid).
 export const CATEGORIES: CategoryMeta[] = [
-  { slug: "honey", name: "Honey", label: "Pure Honey", blurb: "Wild Sidr, acacia and forest honey, raw and unheated.", art: "jar", from: "#F5C961", to: "#E9A31A" },
+  { slug: "honey", name: "Honey", label: "Pure Honey", blurb: "Wild Sidr, acacia and forest honey, raw and unheated.", art: "jar", from: "#F5C961", to: "#E9A31A", image: "/products/pure-honey.webp" },
   { slug: "nuts", name: "Nuts", label: "Almonds & Nuts", blurb: "Jumbo almonds, pistachios, cashews and more.", art: "pouch", from: "#E8C9A0", to: "#C99863" },
   { slug: "dry-fruits", name: "Dry Fruits", label: "Dry Fruits", blurb: "Walnuts, figs, apricots and sun-dried raisins.", art: "pouch", from: "#E6B7A0", to: "#C9795B" },
   { slug: "dates", name: "Dates", label: "Premium Dates", blurb: "Ajwa, Medjool, Sukkari and Mabroom dates.", art: "box", from: "#C99A7A", to: "#7A4A32" },
