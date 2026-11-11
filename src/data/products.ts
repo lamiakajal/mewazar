@@ -185,7 +185,7 @@ export const allProducts: Product[] = [
     name: "Raw Hazelnuts (Bunduq)",
     slug: "raw-hazelnuts-bunduq",
     category: "Nuts",
-    images: ["art:nuts:hazelnut"],
+    images: ["/products/raw-hazelnuts-bunduq.webp"],
     description:
       "Premium European round hazelnuts with a crisp earthy crunch. Ideal for smoothies, homemade nut butters, and energy bites.",
     rating: 4.8,
