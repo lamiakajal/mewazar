@@ -234,7 +234,7 @@ export const allProducts: Product[] = [
     name: "Kandahar Dried Organic Figs (Anjeer)",
     slug: "kandahar-dried-organic-figs-anjeer",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:fig"],
+    images: ["/products/kandahar-dried-organic-figs-anjeer.webp"],
     description:
       "Jumbo hand-threaded dried figs with natural crunchy seeds inside. Traditional superfood for digestive health and stamina.",
     rating: 4.9,
