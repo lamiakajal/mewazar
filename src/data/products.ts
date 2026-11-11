@@ -107,7 +107,7 @@ export const allProducts: Product[] = [
     name: "California Jumbo Almonds (Giri)",
     slug: "california-jumbo-almonds",
     category: "Nuts",
-    images: ["art:nuts:almond"],
+    images: ["/products/california-jumbo-almonds.webp"],
     description:
       "Crisp, sweet, and bursting with beneficial natural oils. Extra-large kernels handpicked for daily energy and vitality.",
     rating: 4.8,
@@ -123,7 +123,7 @@ export const allProducts: Product[] = [
     name: "Kaghzi Badam (Soft Shell Pakistani Almonds)",
     slug: "kaghzi-badam-soft-shell-almonds",
     category: "Nuts",
-    images: ["art:nuts:almond"],
+    images: ["/products/kaghzi-badam-soft-shell-almonds.webp"],
     description:
       "Native Balochistan paper-shell almonds easily cracked with bare fingers. Rich aroma with high oil concentration.",
     rating: 4.9,
@@ -138,7 +138,7 @@ export const allProducts: Product[] = [
     name: "Roasted Salted Pistachios (Pista)",
     slug: "roasted-salted-pistachios",
     category: "Nuts",
-    images: ["art:nuts:pistachio"],
+    images: ["/products/roasted-salted-pistachios.webp"],
     description:
       "Naturally opened, gently slow-roasted with Himalayan pink salt. Crisp texture and deeply satisfying crunch.",
     rating: 4.7,
@@ -154,7 +154,7 @@ export const allProducts: Product[] = [
     name: "Whole Roasted Cashews (Kaju)",
     slug: "whole-roasted-cashews-kaju",
     category: "Nuts",
-    images: ["art:nuts:cashew"],
+    images: ["/products/whole-roasted-cashews-kaju.webp"],
     description:
       "W240 export grade creamy white cashews. Lightly toasted to enhance their naturally buttery and rich texture.",
     rating: 4.9,
@@ -170,7 +170,7 @@ export const allProducts: Product[] = [
     name: "Raw Brazil Nuts",
     slug: "raw-brazil-nuts",
     category: "Nuts",
-    images: ["art:nuts:walnut"],
+    images: ["/products/raw-brazil-nuts.webp"],
     description:
       "Unmatched source of dietary selenium. Large, nutty, crunchy kernels harvested from tropical Amazon rainforest canopies.",
     rating: 4.6,
@@ -185,7 +185,7 @@ export const allProducts: Product[] = [
     name: "Raw Hazelnuts (Bunduq)",
     slug: "raw-hazelnuts-bunduq",
     category: "Nuts",
-    images: ["art:nuts:hazelnut"],
+    images: ["/products/raw-hazelnuts-bunduq.webp"],
     description:
       "Premium European round hazelnuts with a crisp earthy crunch. Ideal for smoothies, homemade nut butters, and energy bites.",
     rating: 4.8,
