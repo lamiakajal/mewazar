@@ -11,6 +11,8 @@ import CoinTransaction from "@/models/CoinTransaction";
 import { getAllProducts, catalogIsInDatabase } from "@/lib/catalog";
 import ProductModel from "@/models/Product";
 import { sendOrderPlacedEmails } from "@/lib/email";
+import { BRAND } from "@/data/brand";
+import { getGateway } from "@/lib/payments/registry";
 import Order from "@/models/Order";
 
 // Payment methods the Order model accepts
@@ -162,6 +164,19 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Unsupported payment method" }, { status: 400 });
     }
     const methodId: OrderPaymentMethod = method.id;
+
+    // Online payment provider for this method (only counts when it is installed and configured)
+    const gateway = getGateway(method.gateway);
+    const gatewayReady = !!gateway && gateway.isConfigured();
+
+    // Without an online provider, wallet and bank orders must carry the transaction ID the
+    // customer got after sending the money, so the shop can match it with its own account.
+    if (methodId !== "cod" && !gatewayReady && clean(body.transactionId, 80).length < 6) {
+      return NextResponse.json(
+        { error: "Please send the payment first, then enter the transaction ID you received." },
+        { status: 400 },
+      );
+    }
 
     // 4. Server-side totals
     const subtotal = items.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -318,11 +333,40 @@ export async function POST(req: Request) {
       });
     }
 
+    // Online payment: ask the provider for its payment page and send the customer there
+    let paymentUrl: string | undefined;
+    let paymentError: string | undefined;
+    if (saved && gateway && gatewayReady) {
+      try {
+        const started = await gateway.createPayment({
+          orderNumber: saved.orderNumber,
+          amount: pricing.total,
+          currency: "PKR",
+          customerName: shippingAddress.fullName,
+          customerEmail: shippingAddress.email,
+          customerPhone: shippingAddress.phone,
+          returnUrl: `${BRAND.siteUrl}/api/payments/callback/${gateway.id}`,
+          webhookUrl: `${BRAND.siteUrl}/api/payments/webhook/${gateway.id}`,
+        });
+        paymentUrl = started.redirectUrl;
+        await Order.updateOne(
+          { orderNumber: saved.orderNumber },
+          { paymentGateway: gateway.id, gatewayRef: started.providerRef ?? "" },
+        );
+      } catch (error) {
+        console.error("Could not start online payment:", error);
+        paymentError =
+          "Your order is saved, but online payment is not available right now. Please contact us to pay another way.";
+      }
+    }
+
     return NextResponse.json(
       {
         message: "Order placed successfully",
         orderNumber: saved?.orderNumber,
         totals: pricing,
+        paymentUrl,
+        paymentError,
       },
       { status: 201 },
     );
