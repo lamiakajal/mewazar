@@ -414,7 +414,7 @@ export const allProducts: Product[] = [
     name: "Ramadan Energy Mega Combo",
     slug: "ramadan-energy-mega-combo",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/ramadan-energy-mega-combo.webp"],
     description:
       "Complete wellness trio: 500g Pure Wild Honey, 500g California Almonds, and 500g Gilgit Walnuts at special discounted pack pricing.",
     rating: 4.9,
@@ -426,7 +426,7 @@ export const allProducts: Product[] = [
     name: "Immunity Boost Breakfast Duo",
     slug: "immunity-boost-breakfast-duo",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/immunity-boost-breakfast-duo.webp"],
     description:
       "Morning power bundle featuring 500g Kashmiri Organic Wild Honey paired with 500g Chia & Basil Seeds mix.",
     rating: 4.8,
@@ -438,7 +438,7 @@ export const allProducts: Product[] = [
     name: "Student Memory & Focus Bundle",
     slug: "student-memory-focus-bundle",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/student-memory-focus-bundle.webp"],
     description:
       "Exam preparation pack containing 500g Mountain Walnuts and 500g California Jumbo Almonds for sustained mental focus.",
     rating: 4.9,
@@ -451,7 +451,7 @@ export const allProducts: Product[] = [
     name: "Winter Warmth Traditional Pack",
     slug: "winter-warmth-traditional-pack",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/winter-warmth-traditional-pack.webp"],
     description:
       "Traditional cold weather bundle: 500g Sidr Honey, 500g Roasted Salted Pistachios, and 250g Kandahar Dried Figs.",
     rating: 5.0,
