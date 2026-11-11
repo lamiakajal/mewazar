@@ -57,7 +57,7 @@ export const allProducts: Product[] = [
     name: "Black Forest Mountain Honey",
     slug: "black-forest-mountain-honey",
     category: "Honey",
-    images: ["art:honey:honey"],
+    images: ["/products/black-forest-mountain-honey.webp"],
     description:
       "Dark aromatic honeydew collected from pine forest flora. Rich in natural minerals, potassium, and antioxidants.",
     rating: 4.9,
