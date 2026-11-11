@@ -678,7 +678,7 @@ export const allProducts: Product[] = [
     slug: "cold-pressed-black-seed-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/cold-pressed-black-seed-oil.webp"],
     description:
       "Dark, bold oil pressed from kalonji seeds at low temperature, bottled in amber glass.",
     rating: 4.7,
