@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import ProductArt from "@/components/ui/ProductArt";
+import ProductImage from "@/components/ui/ProductImage";
 import Reveal from "@/components/ui/Reveal";
 import type { CategoryMeta } from "@/data/categories";
 import type { Product } from "@/types";
@@ -9,6 +10,14 @@ import type { Product } from "@/types";
 export default function CategoryGrid({ products, categories }: { products: Product[]; categories: CategoryMeta[] }) {
   const countFor = (name: string) => products.filter((p) => p.category === name).length;
   const [feature, ...rest] = categories;
+
+  // Tile photo: the owner's cover photo, otherwise the first real photo of a product in that category
+  const coverFor = (cat: CategoryMeta): string | null => {
+    if (cat.image) return cat.image;
+    const withPhoto = products.find((p) => p.category === cat.name && p.images[0] && !p.images[0].startsWith("art:"));
+    return withPhoto ? withPhoto.images[0] : null;
+  };
+  const featureCover = coverFor(feature);
 
   return (
     <section className="py-16 sm:py-24" aria-labelledby="categories-heading">
@@ -44,7 +53,11 @@ export default function CategoryGrid({ products, categories }: { products: Produ
               style={{ background: `linear-gradient(160deg, ${feature.from}55, ${feature.to}99)` }}
             >
               <div className="absolute inset-x-0 top-0 h-[78%] transition-transform duration-700 group-hover:scale-105">
-                <ProductArt slug={feature.slug} categories={categories} className="bg-transparent" />
+                {featureCover ? (
+                  <ProductImage src={featureCover} alt={feature.label} fallbackSlug={feature.slug} sizes="(max-width: 1024px) 100vw, 50vw" />
+                ) : (
+                  <ProductArt slug={feature.slug} categories={categories} className="bg-transparent" />
+                )}
               </div>
               <div className="relative rounded-2xl bg-surface/90 p-5 backdrop-blur">
                 <h3 className="font-display text-2xl font-extrabold text-stone-900">{feature.label}</h3>
@@ -64,8 +77,12 @@ export default function CategoryGrid({ products, categories }: { products: Produ
                 className="group flex h-full flex-col overflow-hidden rounded-3xl border border-stone-200/80 bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-gold-400/60 hover:shadow-lift"
               >
                 <div className="relative aspect-[5/3] overflow-hidden">
-                  <div className="h-full w-full transition-transform duration-500 group-hover:scale-110">
-                    <ProductArt slug={cat.slug} categories={categories} />
+                  <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-110">
+                    {coverFor(cat) ? (
+                      <ProductImage src={coverFor(cat) as string} alt={cat.label} fallbackSlug={cat.slug} sizes="(max-width: 640px) 50vw, 25vw" />
+                    ) : (
+                      <ProductArt slug={cat.slug} categories={categories} />
+                    )}
                   </div>
                   {cat.badge && (
                     <span className="absolute right-2.5 top-2.5 rounded-full bg-rose-500 px-2 py-0.5 text-[10px] font-bold text-white">
