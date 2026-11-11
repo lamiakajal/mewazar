@@ -3,6 +3,19 @@
 All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com) and the project uses [Semantic Versioning](https://semver.org).
 
+## [1.1.0] - 2026-11-11
+
+### Added
+- Moderators: the owner can add helpers by email and choose what each may do; settings, staff and activity are owner-only
+- Activity log of admin actions
+- Provider-agnostic online payment layer: payment gateway contract, callback and webhook routes, safe idempotent order updates, order confirmed page
+- Wallet and bank orders must include a transaction ID; Guest or Account label on admin orders
+- Product photos for the starter catalog, best-looking products first, and an admin button to apply them to products already in the database
+- Cover photos for home page category tiles (uploaded, or the best product photo)
+
+### Security
+- Staff access requires a Google or GitHub sign-in and is re-checked in the database on every request
+
 ## [1.0.0] - 2026-11-07
 
 ### Added
