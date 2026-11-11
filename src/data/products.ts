@@ -514,7 +514,7 @@ export const allProducts: Product[] = [
     slug: "khudri-soft-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/khudri-soft-dates.webp"],
     description:
       "Everyday soft dates with a toffee-like taste and a tender skin. Great for smoothies and baking.",
     rating: 4.6,
