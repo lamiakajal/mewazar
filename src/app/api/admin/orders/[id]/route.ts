@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
+import { logAction } from "@/lib/audit";
 import { connectToDatabase } from "@/lib/mongodb";
 import { catalogIsInDatabase } from "@/lib/catalog";
 import { sendStatusEmail } from "@/lib/email";
@@ -17,7 +18,7 @@ const PAYMENT_STATUSES = ["pending", "verified", "failed", "refunded"];
 
 /** Admin updates: order stage, payment verification, courier details. */
 export async function PATCH(req: Request, { params }: Ctx) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("orders"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
   const { id } = await params;
@@ -91,5 +92,6 @@ export async function PATCH(req: Request, { params }: Ctx) {
     });
   }
 
+  await logAction("order.update", `${order.orderNumber}: status ${previousStatus} to ${order.orderStatus}, payment ${order.paymentStatus}`);
   return NextResponse.json({ order });
 }

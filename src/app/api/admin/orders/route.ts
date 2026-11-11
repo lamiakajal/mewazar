@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
 import { connectToDatabase } from "@/lib/mongodb";
 import Order, { IOrder } from "@/models/Order";
 
 const ORDER_STATUSES = ["placed", "processing", "dispatched", "delivered", "cancelled"];
 
 export async function GET(req: Request) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("orders"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
   const status = new URL(req.url).searchParams.get("status");

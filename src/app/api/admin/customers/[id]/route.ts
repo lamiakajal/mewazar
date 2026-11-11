@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
+import { logAction } from "@/lib/audit";
 import { connectToDatabase } from "@/lib/mongodb";
 import User from "@/models/User";
 import CoinTransaction from "@/models/CoinTransaction";
@@ -9,7 +10,7 @@ type Ctx = { params: Promise<{ id: string }> };
 
 /** Admin adds or removes reward coins for a customer (with a note for the history). */
 export async function PATCH(req: Request, { params }: Ctx) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("customers"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
   const { id } = await params;
@@ -32,5 +33,6 @@ export async function PATCH(req: Request, { params }: Ctx) {
 
   await CoinTransaction.create({ userId: id, type: "adjust", coins, note });
   const user = await User.findById(id).select("coinBalance").lean<{ coinBalance?: number }>();
+  await logAction("coins.adjust", `${user?.coinBalance ?? 0} coins after ${coins > 0 ? "+" : ""}${coins} (${note})`);
   return NextResponse.json({ balance: user?.coinBalance ?? 0 });
 }
