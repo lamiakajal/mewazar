@@ -60,10 +60,17 @@ and has a light and a dark theme.
 | Orders | Move through stages, verify or refund payments, courier and tracking ID, notes, invoice, WhatsApp message |
 | Categories | Add, rename, recolour, reorder |
 | Customers | View accounts and reward coins; add or remove coins |
+| Staff | Add moderators and choose exactly what each one may do |
+| Activity | See who changed what in the admin panel |
 | Reviews | Approve, unpublish, delete |
 | Messages | Contact form inbox |
 | Content | Shop name, logo, home page text, FAQ, About page and policies |
 | Settings | Contact, delivery, pause orders, announcement, payments, coupons, couriers and tracking links, reward rules |
+
+### Team and payments
+- Moderators with per-person permissions (orders, products, reviews, messages, customers, categories, content); settings, staff and activity stay with the owner
+- Provider-agnostic online payment layer (callbacks, webhook, safe order updates): add a gateway by writing one adapter file, see [docs/PAYMENT-GATEWAY-GUIDE.md](docs/PAYMENT-GATEWAY-GUIDE.md)
+- Product photos for the starter catalog, with the best-looking ones first (see [docs/PRODUCT-PHOTOS.md](docs/PRODUCT-PHOTOS.md))
 
 ### Customer accounts
 Google, GitHub or email sign-in, email confirmation, password reset, order history and reward coins.
@@ -150,7 +157,7 @@ Push to a private repository, import it in Vercel, add the environment variables
 `NEXT_PUBLIC_SITE_URL` to the live domain. Step-by-step instructions are in [SETUP-GUIDE.md](SETUP-GUIDE.md).
 
 ## Not included
-- Card or wallet payment gateway integration (needs merchant credentials; payments are verified manually)
+- A ready-made card or wallet gateway adapter (needs merchant credentials; the payment layer is ready, payments are verified manually until an adapter is added)
 - Automatic WhatsApp messages (needs the WhatsApp Business API; the admin has one-click prefilled messages)
 
 ## Contributing
