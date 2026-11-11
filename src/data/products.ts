@@ -90,7 +90,7 @@ export const allProducts: Product[] = [
     name: "Raw Honeycomb with Pure Mountain Nectar",
     slug: "raw-honeycomb-pure-mountain-nectar",
     category: "Honey",
-    images: ["art:honey:comb"],
+    images: ["/products/raw-honeycomb-pure-mountain-nectar.webp"],
     description:
       "100% pure raw honeycomb cut straight from natural frames. Edible beeswax packed with living bee pollen and propolis.",
     rating: 5.0,
