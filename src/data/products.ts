@@ -170,7 +170,7 @@ export const allProducts: Product[] = [
     name: "Raw Brazil Nuts",
     slug: "raw-brazil-nuts",
     category: "Nuts",
-    images: ["art:nuts:walnut"],
+    images: ["/products/raw-brazil-nuts.webp"],
     description:
       "Unmatched source of dietary selenium. Large, nutty, crunchy kernels harvested from tropical Amazon rainforest canopies.",
     rating: 4.6,
