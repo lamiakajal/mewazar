@@ -107,7 +107,7 @@ export const allProducts: Product[] = [
     name: "California Jumbo Almonds (Giri)",
     slug: "california-jumbo-almonds",
     category: "Nuts",
-    images: ["art:nuts:almond"],
+    images: ["/products/california-jumbo-almonds.webp"],
     description:
       "Crisp, sweet, and bursting with beneficial natural oils. Extra-large kernels handpicked for daily energy and vitality.",
     rating: 4.8,
