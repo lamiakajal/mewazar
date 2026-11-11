@@ -414,7 +414,7 @@ export const allProducts: Product[] = [
     name: "Ramadan Energy Mega Combo",
     slug: "ramadan-energy-mega-combo",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/ramadan-energy-mega-combo.webp"],
     description:
       "Complete wellness trio: 500g Pure Wild Honey, 500g California Almonds, and 500g Gilgit Walnuts at special discounted pack pricing.",
     rating: 4.9,
