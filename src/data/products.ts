@@ -202,7 +202,7 @@ export const allProducts: Product[] = [
     name: "Mountain Walnuts (Akhrot Giri)",
     slug: "mountain-walnuts-akhrot",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:walnut"],
+    images: ["/products/mountain-walnuts-akhrot.webp"],
     description:
       "Fresh light-kernel Gilgit mountain walnuts packed with plant-based Omega-3 fatty acids and memory enhancers.",
     rating: 5.0,
@@ -218,7 +218,7 @@ export const allProducts: Product[] = [
     name: "Sundried Afghan Green Raisins (Kishmish)",
     slug: "sundried-afghan-green-raisins",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:graisin"],
+    images: ["/products/sundried-afghan-green-raisins.webp"],
     description:
       "Extra long green raisins naturally dried under warm alpine sun. Sweet, seedless, and loaded with natural iron.",
     rating: 4.8,
@@ -234,7 +234,7 @@ export const allProducts: Product[] = [
     name: "Kandahar Dried Organic Figs (Anjeer)",
     slug: "kandahar-dried-organic-figs-anjeer",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:fig"],
+    images: ["/products/kandahar-dried-organic-figs-anjeer.webp"],
     description:
       "Jumbo hand-threaded dried figs with natural crunchy seeds inside. Traditional superfood for digestive health and stamina.",
     rating: 4.9,
@@ -250,7 +250,7 @@ export const allProducts: Product[] = [
     name: "Dried Seedless Turkish Apricots",
     slug: "dried-seedless-turkish-apricots",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:apricot"],
+    images: ["/products/dried-seedless-turkish-apricots.webp"],
     description:
       "Golden sweet sundried whole apricots. Moist, tender, and rich in natural Vitamin A and dietary fiber.",
     rating: 4.7,
@@ -266,7 +266,7 @@ export const allProducts: Product[] = [
     name: "Royal Black Raisins (Munakka)",
     slug: "royal-black-raisins-munakka",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:raisin"],
+    images: ["/products/royal-black-raisins-munakka.webp"],
     description:
       "Large fleshy seeded black raisins known in Ayurvedic and Unani traditions for strengthening bone density and blood circulation.",
     rating: 4.8,
