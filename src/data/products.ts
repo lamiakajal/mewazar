@@ -25,7 +25,7 @@ export const allProducts: Product[] = [
     name: "Sidr (Beri) Honey Premium Blend",
     slug: "sidr-beri-honey-premium",
     category: "Honey",
-    images: ["art:honey:honey"],
+    images: ["/products/sidr-beri-honey-premium.webp"],
     description:
       "Monofloral nectar collected from ancient wild Sidr trees across the Karak region. Globally celebrated for supreme purity and immune vitality.",
     rating: 5.0,
@@ -100,7 +100,6 @@ export const allProducts: Product[] = [
       { weight: "700g Comb", price: 3300, stock: 6 },
     ],
   },
-
   // ===================== 2. ALMONDS & NUTS (6 Products) =====================
   {
     id: "prod-7",
@@ -196,7 +195,6 @@ export const allProducts: Product[] = [
       { weight: "500g", price: 1600, stock: 14 },
     ],
   },
-
   // ===================== 3. ORGANIC DRY FRUITS (6 Products) =====================
   {
     id: "prod-13",
@@ -295,7 +293,6 @@ export const allProducts: Product[] = [
       { weight: "1kg Box", price: 2800, stock: 25 },
     ],
   },
-
   // ===================== 4. HEALTHY SEEDS (4 Products) =====================
   {
     id: "prod-19",
@@ -358,7 +355,6 @@ export const allProducts: Product[] = [
       { weight: "500g", price: 680, stock: 25 },
     ],
   },
-
   // ===================== 5. LUXURY GIFT BOXES (4 Products) =====================
   {
     id: "prod-23",
@@ -412,7 +408,6 @@ export const allProducts: Product[] = [
     reviewsCount: 26,
     variants: [{ weight: "1.2kg Platter", price: 5200, stock: 10 }],
   },
-
   // ===================== 6. SPECIAL COMBOS (4 Products) =====================
   {
     id: "prod-27",
@@ -463,7 +458,6 @@ export const allProducts: Product[] = [
     reviewsCount: 92,
     variants: [{ weight: "1.25kg Winter Pack", price: 4850, comparePrice: 5580, stock: 18 }],
   },
-
   // ===================== NEW CATEGORIES (Dates, Spices, Tea, Oils & Ghee, Spreads) =====================
   {
     id: "prod-31",
