@@ -100,7 +100,23 @@ export const authOptions: NextAuthOptions = {
       }
       return true;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account }) {
+      if (account) token.provider = account.provider;
+
+      // Staff roles can change while someone is signed in: re-read the role every 5 minutes
+      if (!user && token.email && (!token.roleCheckedAt || Date.now() - Number(token.roleCheckedAt) > 5 * 60 * 1000)) {
+        try {
+          await connectToDatabase();
+          const fresh = await User.findOne({ email: String(token.email).toLowerCase() })
+            .select("role")
+            .lean<{ role?: string }>();
+          token.role = fresh?.role || "customer";
+          token.roleCheckedAt = Date.now();
+        } catch {
+          // keep the previous role if the database is unreachable
+        }
+      }
+
       if (user) {
         // Always use our own database id and role (OAuth ids belong to the provider)
         await connectToDatabase();
@@ -109,6 +125,7 @@ export const authOptions: NextAuthOptions = {
           .lean<{ _id: { toString(): string }; role?: string }>();
         token.id = dbUser ? dbUser._id.toString() : user.id;
         token.role = dbUser?.role || "customer";
+        token.roleCheckedAt = Date.now();
       }
       return token;
     },
@@ -116,6 +133,7 @@ export const authOptions: NextAuthOptions = {
       if (session.user) {
         (session.user as { id?: string }).id = token.id as string;
         (session.user as { role?: string }).role = token.role as string;
+        (session.user as { provider?: string }).provider = token.provider as string | undefined;
       }
       return session;
     },
