@@ -242,9 +242,17 @@ export default function CheckoutView({ payments, shipping, rewards, orders }: Ch
       }
 
       const orderId: string = data.orderNumber;
+      clearCart();
+
+      // Online payment: the order is saved, now the provider's payment page takes over
+      if (data.paymentUrl) {
+        window.location.assign(data.paymentUrl);
+        return;
+      }
+
       setGeneratedOrderId(orderId);
       setOrderPlaced(true);
-      clearCart();
+      if (data.paymentError) setOrderError(data.paymentError);
     } catch (err: unknown) {
       if (err instanceof Error) {
         setOrderError(err.message);
@@ -726,13 +734,19 @@ export default function CheckoutView({ payments, shipping, rewards, orders }: Ch
                             </button>
 
                             {/* Transaction ID / Ref input */}
+                            {method.gateway ? (
+                              <p className="rounded-xl bg-gold-50 px-3 py-2 text-[11px] font-semibold text-gold-900">
+                                After you press Confirm Order you will be taken to the secure {method.name} payment page.
+                              </p>
+                            ) : (
                             <div className="pt-2">
                               <label className="block text-[11px] font-bold text-stone-700 mb-1">
-                                Enter Transaction ID / Reference (After
-                                Payment):
+                                1. Send the amount to the account above. 2. Enter the Transaction ID you received (required):
                               </label>
                               <input
                                 type="text"
+                                required
+                                minLength={6}
                                 placeholder="e.g. TID-9876543210 or Bank Reference"
                                 value={transactionRef}
                                 onChange={(e) =>
@@ -741,6 +755,7 @@ export default function CheckoutView({ payments, shipping, rewards, orders }: Ch
                                 className="w-full px-3 py-2 bg-stone-50 border border-stone-200 rounded-xl text-xs font-mono text-stone-800 focus:outline-none focus:ring-2 focus:ring-primary"
                               />
                             </div>
+                            )}
                           </div>
                         )}
                       </div>
