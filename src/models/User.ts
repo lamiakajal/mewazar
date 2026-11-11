@@ -5,7 +5,9 @@ export interface IUser extends Document {
   email: string;
   password?: string;
   image?: string;
-  role: "customer" | "admin";
+  role: "customer" | "moderator" | "admin";
+  /** What a moderator may do (see lib/permissions.ts). Admins can do everything. */
+  permissions?: string[];
   provider: "credentials" | "google" | "github";
   phone?: string;
   resetTokenHash?: string;
@@ -53,9 +55,10 @@ const UserSchema = new Schema<IUser>(
     verifyTokenExpires: { type: Date, select: false },
     resetTokenHash: { type: String, select: false },
     resetTokenExpires: { type: Date, select: false },
+    permissions: { type: [String], default: [] },
     role: {
       type: String,
-      enum: ["customer", "admin"],
+      enum: ["customer", "moderator", "admin"],
       default: "customer",
     },
     provider: {
