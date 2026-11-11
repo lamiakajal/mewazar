@@ -315,7 +315,7 @@ export const allProducts: Product[] = [
     name: "Roasted Pumpkin & Sunflower Seeds",
     slug: "roasted-pumpkin-sunflower-seeds",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/roasted-pumpkin-sunflower-seeds.webp"],
     description:
       "Crunchy pepitas and shelled sunflower seeds lightly salted. Abundant in zinc, magnesium, and plant protein.",
     rating: 4.9,
