@@ -354,14 +354,14 @@ export default function Navbar() {
                       <p className="truncate text-sm font-bold text-stone-800">{session?.user?.name}</p>
                       <p className="truncate text-xs text-stone-500">{session?.user?.email}</p>
                     </div>
-                    {(session?.user as { role?: string } | undefined)?.role === "admin" && (
+                    {["admin", "moderator"].includes((session?.user as { role?: string } | undefined)?.role ?? "") && (
                       <Link
                         href="/admin"
                         onClick={closeAll}
                         className="flex items-center gap-2.5 px-4 py-2.5 text-sm font-bold text-heading transition hover:bg-stone-50"
                       >
                         <LayoutDashboard className="h-4 w-4 text-gold-600" />
-                        Admin panel
+                        {(session?.user as { role?: string } | undefined)?.role === "moderator" ? "Staff panel" : "Admin panel"}
                       </Link>
                     )}
                     {rewards.enabled && (
