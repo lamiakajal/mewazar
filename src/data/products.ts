@@ -299,7 +299,7 @@ export const allProducts: Product[] = [
     name: "Organic Chia & Basil Seeds Trio",
     slug: "chia-basil-seeds-trio",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/chia-basil-seeds-trio.webp"],
     description:
       "Cleaned, raw whole black chia seeds and sweet tukhm-e-balanga. Essential morning companion for weight balance.",
     rating: 4.8,
@@ -315,7 +315,7 @@ export const allProducts: Product[] = [
     name: "Roasted Pumpkin & Sunflower Seeds",
     slug: "roasted-pumpkin-sunflower-seeds",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/roasted-pumpkin-sunflower-seeds.webp"],
     description:
       "Crunchy pepitas and shelled sunflower seeds lightly salted. Abundant in zinc, magnesium, and plant protein.",
     rating: 4.9,
@@ -330,7 +330,7 @@ export const allProducts: Product[] = [
     name: "Golden Raw Flaxseeds (Alsi)",
     slug: "golden-raw-flaxseeds-alsi",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/golden-raw-flaxseeds-alsi.webp"],
     description:
       "High-lignan golden flaxseeds packed with soluble dietary fiber and cardiovascular support nutrients.",
     rating: 4.6,
@@ -345,7 +345,7 @@ export const allProducts: Product[] = [
     name: "Organic Raw White Sesame Seeds (Til)",
     slug: "organic-raw-white-sesame-seeds-til",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/organic-raw-white-sesame-seeds-til.webp"],
     description:
       "Pristine natural white sesame seeds. Exceptional plant-based calcium provider for bones and winter traditional sweets.",
     rating: 4.7,
