@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
+import { logAction } from "@/lib/audit";
 import { connectToDatabase } from "@/lib/mongodb";
 import { parseProductInput } from "@/lib/product-input";
 import { getSettings } from "@/lib/settings";
@@ -11,7 +12,7 @@ type Ctx = { params: Promise<{ id: string }> };
 const unauthorized = () => NextResponse.json({ error: "Admin access required" }, { status: 403 });
 
 export async function PATCH(req: Request, { params }: Ctx) {
-  if (!(await getAdminEmail())) return unauthorized();
+  if (!(await getStaffWith("products"))) return unauthorized();
   const { id } = await params;
 
   const parsed = parseProductInput(await req.json().catch(() => null), (await getSettings()).categories);
@@ -24,6 +25,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
     if (!updated) return NextResponse.json({ error: "Product not found" }, { status: 404 });
     await deleteUnusedUploads(previous?.images ?? [], parsed.data.images);
     revalidatePath("/", "layout");
+    await logAction("product.update", updated.name);
     return NextResponse.json({ product: updated });
   } catch (error) {
     if ((error as { code?: number }).code === 11000) {
@@ -35,7 +37,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
 }
 
 export async function DELETE(_req: Request, { params }: Ctx) {
-  if (!(await getAdminEmail())) return unauthorized();
+  if (!(await getStaffWith("products"))) return unauthorized();
   const { id } = await params;
 
   await connectToDatabase();
@@ -46,5 +48,6 @@ export async function DELETE(_req: Request, { params }: Ctx) {
   }
   await deleteUnusedUploads(previous?.images ?? [], []);
   revalidatePath("/", "layout");
+  await logAction("product.delete", id);
   return NextResponse.json({ ok: true });
 }
