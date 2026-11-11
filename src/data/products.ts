@@ -710,7 +710,7 @@ export const allProducts: Product[] = [
     slug: "cold-pressed-almond-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/cold-pressed-almond-oil.webp"],
     description:
       "Light, nutty almond oil for cooking, baking and everyday use. Pressed without solvents or heat.",
     rating: 4.7,
