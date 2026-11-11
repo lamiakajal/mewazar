@@ -662,7 +662,7 @@ export const allProducts: Product[] = [
     category: "Oils & Ghee",
     isFeatured: true,
     isNew: true,
-    images: ["art:oils-ghee:ghee"],
+    images: ["/products/pure-desi-cow-ghee.webp"],
     description:
       "Slow-simmered desi ghee with a nutty aroma and a grainy, golden texture. Made in small batches.",
     rating: 4.9,
