@@ -138,7 +138,7 @@ export const allProducts: Product[] = [
     name: "Roasted Salted Pistachios (Pista)",
     slug: "roasted-salted-pistachios",
     category: "Nuts",
-    images: ["art:nuts:pistachio"],
+    images: ["/products/roasted-salted-pistachios.webp"],
     description:
       "Naturally opened, gently slow-roasted with Himalayan pink salt. Crisp texture and deeply satisfying crunch.",
     rating: 4.7,
