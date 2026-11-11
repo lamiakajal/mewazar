@@ -726,7 +726,7 @@ export const allProducts: Product[] = [
     slug: "stone-ground-almond-butter",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/stone-ground-almond-butter.webp"],
     description:
       "Smooth, roasted almond butter with nothing added except a pinch of salt. Stir before you spread.",
     rating: 4.8,
