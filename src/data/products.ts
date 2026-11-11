@@ -597,7 +597,7 @@ export const allProducts: Product[] = [
     category: "Tea",
     isFeatured: true,
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/kashmiri-kahwa-tea.webp"],
     description:
       "Traditional green tea blended with saffron, cardamom and cinnamon. Brew it with a spoon of honey.",
     rating: 4.9,
@@ -629,7 +629,7 @@ export const allProducts: Product[] = [
     slug: "chamomile-mint-herbal-blend",
     category: "Tea",
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/chamomile-mint-herbal-blend.webp"],
     description:
       "A caffeine-free blend of chamomile flowers and cool peppermint for slow evenings.",
     rating: 4.7,
@@ -645,7 +645,7 @@ export const allProducts: Product[] = [
     slug: "masala-chai-blend",
     category: "Tea",
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/masala-chai-blend.webp"],
     description:
       "Strong black tea with ginger, cardamom and clove, ready for a proper milky cup of chai.",
     rating: 4.8,
