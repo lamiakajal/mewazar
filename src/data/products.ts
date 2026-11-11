@@ -451,7 +451,7 @@ export const allProducts: Product[] = [
     name: "Winter Warmth Traditional Pack",
     slug: "winter-warmth-traditional-pack",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/winter-warmth-traditional-pack.webp"],
     description:
       "Traditional cold weather bundle: 500g Sidr Honey, 500g Roasted Salted Pistachios, and 250g Kandahar Dried Figs.",
     rating: 5.0,
