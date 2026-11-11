@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
+import { logAction } from "@/lib/audit";
 import { connectToDatabase } from "@/lib/mongodb";
 import ProductModel from "@/models/Product";
 import SettingsModel from "@/models/Settings";
@@ -12,7 +13,7 @@ const s = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0
 
 /** Saves the category list (names, colours, order). Categories that still have products cannot be removed. */
 export async function PUT(req: Request) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("categories"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
 
@@ -64,5 +65,6 @@ export async function PUT(req: Request) {
 
   await SettingsModel.findOneAndUpdate({ key: "main" }, { $set: { "data.categories": categories } }, { upsert: true });
   revalidatePath("/", "layout");
+  await logAction("categories.update");
   return NextResponse.json({ ok: true });
 }
