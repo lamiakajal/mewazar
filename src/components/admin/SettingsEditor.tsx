@@ -119,7 +119,14 @@ function CourierRow({
   );
 }
 
-export default function SettingsEditor({ initial }: { initial: StoreSettings }) {
+export default function SettingsEditor({
+  initial,
+  gateways = [],
+}: {
+  initial: StoreSettings;
+  /** Online payment providers installed on the server (empty until one is added). */
+  gateways?: { id: string; name: string }[];
+}) {
   const router = useRouter();
   const [s, setS] = useState<StoreSettings>(initial);
   const [saving, setSaving] = useState(false);
@@ -282,6 +289,20 @@ export default function SettingsEditor({ initial }: { initial: StoreSettings }) 
                     <input value={m.subtitle} onChange={(e) => setPayment(i, { subtitle: e.target.value })} className={inputClass} />
                   </Field>
                 </div>
+                {m.id !== "cod" && gateways.length > 0 && (
+                  <div className="sm:col-span-2">
+                    <Field label="Online payment provider" hint="Choose one to send customers to a secure payment page. Leave on 'Manual' to keep sending money to your account number.">
+                      <select value={m.gateway ?? ""} onChange={(e) => setPayment(i, { gateway: e.target.value || undefined })} className={inputClass}>
+                        <option value="">Manual (customer sends money, enters transaction ID)</option>
+                        {gateways.map((g) => (
+                          <option key={g.id} value={g.id}>
+                            {g.name}
+                          </option>
+                        ))}
+                      </select>
+                    </Field>
+                  </div>
+                )}
                 {m.id !== "cod" && (
                   <>
                     <Field label="Account title">

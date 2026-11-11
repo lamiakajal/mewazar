@@ -1,6 +1,7 @@
 import React from "react";
 import { getSettings } from "@/lib/settings";
 import SettingsEditor from "@/components/admin/SettingsEditor";
+import { listConfiguredGateways } from "@/lib/payments/registry";
 
 export default async function AdminSettingsPage() {
   const settings = await getSettings();
@@ -13,7 +14,7 @@ export default async function AdminSettingsPage() {
           Contact details, delivery charges, payment accounts, coupons, couriers and offers. Changes go live within a minute.
         </p>
       </div>
-      <SettingsEditor initial={settings} />
+      <SettingsEditor initial={settings} gateways={listConfiguredGateways()} />
     </div>
   );
 }

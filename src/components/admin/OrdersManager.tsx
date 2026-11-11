@@ -15,6 +15,8 @@ export interface AdminOrder {
   paymentMethod: string;
   paymentStatus: "pending" | "verified" | "failed" | "refunded";
   adminNote?: string;
+  isGuest?: boolean;
+  paymentGateway?: string;
   transactionId?: string;
   voucherCode?: string;
   subtotal: number;
@@ -116,7 +118,17 @@ function OrderCard({ order, couriers, onSaved }: { order: AdminOrder; couriers: 
         className="flex w-full flex-wrap items-center gap-x-4 gap-y-2 p-4 text-left cursor-pointer"
       >
         <div className="min-w-0 flex-1">
-          <p className="font-bold text-stone-900">{order.orderNumber}</p>
+          <p className="font-bold text-stone-900">
+            {order.orderNumber}
+            <span
+              className={`ml-2 rounded-full px-2 py-0.5 align-middle text-[10px] font-bold ${
+                order.isGuest ? "bg-stone-200 text-stone-700" : "bg-leaf-100 text-leaf-700"
+              }`}
+              title={order.isGuest ? "Placed without an account" : "Placed by a registered customer"}
+            >
+              {order.isGuest ? "Guest" : "Account"}
+            </span>
+          </p>
           <p className="truncate text-xs text-stone-500">
             <span suppressHydrationWarning>{new Date(order.createdAt).toLocaleString("en-PK")}</span> &middot;{" "}
             {a.fullName}, {a.city}
