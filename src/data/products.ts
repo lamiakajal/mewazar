@@ -773,7 +773,7 @@ export const allProducts: Product[] = [
     slug: "honey-hazelnut-spread",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/honey-hazelnut-spread.webp"],
     description:
       "Roasted hazelnuts blended with raw honey into a silky spread with no palm oil.",
     rating: 4.8,
