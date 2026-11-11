@@ -45,6 +45,7 @@ export function sanitizeSettings(body: unknown): Result {
       subtitle: str(p.subtitle, 140),
       discountPercent: int(p.discountPercent, 0, 50, 0),
       isActive: !!p.isActive,
+      gateway: str(p.gateway, 30) || undefined,
       accountDetails: {
         title: str(a.title, 70),
         accountNumber: str(a.accountNumber, 60),
