@@ -266,7 +266,7 @@ export const allProducts: Product[] = [
     name: "Royal Black Raisins (Munakka)",
     slug: "royal-black-raisins-munakka",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:raisin"],
+    images: ["/products/royal-black-raisins-munakka.webp"],
     description:
       "Large fleshy seeded black raisins known in Ayurvedic and Unani traditions for strengthening bone density and blood circulation.",
     rating: 4.8,
