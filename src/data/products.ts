@@ -426,7 +426,7 @@ export const allProducts: Product[] = [
     name: "Immunity Boost Breakfast Duo",
     slug: "immunity-boost-breakfast-duo",
     category: "Combos",
-    images: ["art:combos:combo"],
+    images: ["/products/immunity-boost-breakfast-duo.webp"],
     description:
       "Morning power bundle featuring 500g Kashmiri Organic Wild Honey paired with 500g Chia & Basil Seeds mix.",
     rating: 4.8,
