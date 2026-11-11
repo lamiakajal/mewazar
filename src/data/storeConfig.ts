@@ -19,6 +19,8 @@ export interface PaymentOption {
   appScheme?: string;
   webFallbackUrl?: string;
   qrCodeUrl?: string;
+  /** Online payment provider id (see lib/payments). Empty = manual payment with a transaction ID. */
+  gateway?: string;
   accountDetails: {
     title: string;
     accountNumber: string;

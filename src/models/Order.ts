@@ -29,6 +29,8 @@ export interface IOrder extends Document {
   trackingId?: string;
   courier?: string;
   adminNote?: string;
+  paymentGateway?: string;
+  gatewayRef?: string;
   coinsUsed?: number;
   coinDiscount?: number;
   coinsEarned?: number;
@@ -116,6 +118,9 @@ const OrderSchema = new Schema<IOrder>(
     coinsEarned: { type: Number, default: 0 },
     coinsCredited: { type: Boolean, default: false },
     coinsRefunded: { type: Boolean, default: false },
+    // Set when the customer paid through an online payment provider
+    paymentGateway: { type: String, default: "" },
+    gatewayRef: { type: String, default: "" },
     // Private note for the shop team (never shown to the customer)
     adminNote: { type: String, default: "" },
     // Guards against restocking the same cancelled order twice
