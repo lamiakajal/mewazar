@@ -362,7 +362,7 @@ export const allProducts: Product[] = [
     name: "Royal Dry Fruit Gift Hamper",
     slug: "royal-dry-fruit-gift-hamper",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/royal-dry-fruit-gift-hamper.webp"],
     description:
       "Handcrafted pine-wood chest loaded with 4 partitioned compartments containing premium cashews, pistachios, raisins, and walnuts.",
     rating: 5.0,
@@ -377,7 +377,7 @@ export const allProducts: Product[] = [
     name: "Festive Velvet Celebration Box",
     slug: "festive-velvet-celebration-box",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/festive-velvet-celebration-box.webp"],
     description:
       "Regal emerald green velvet box packaged with royal roasted almonds, saffron infusion jar, and golden dried figs.",
     rating: 4.9,
@@ -389,7 +389,7 @@ export const allProducts: Product[] = [
     name: "Imperial Saffron & Nut Treasure Box",
     slug: "imperial-saffron-nut-treasure-box",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/imperial-saffron-nut-treasure-box.webp"],
     description:
       "Exclusive artisanal gold-foil embossed box featuring 2g pure Kashmiri Mongra Saffron, jumbo pistachios, and roasted cashews.",
     rating: 5.0,
@@ -401,7 +401,7 @@ export const allProducts: Product[] = [
     name: "Corporate Executive Gift Platter",
     slug: "corporate-executive-gift-platter",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/corporate-executive-gift-platter.webp"],
     description:
       "Laser-etched bamboo presentation platter arranged with premium dry fruit assortment and miniature pure Sidr honey jar.",
     rating: 4.8,
