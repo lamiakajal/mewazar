@@ -377,7 +377,7 @@ export const allProducts: Product[] = [
     name: "Festive Velvet Celebration Box",
     slug: "festive-velvet-celebration-box",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/festive-velvet-celebration-box.webp"],
     description:
       "Regal emerald green velvet box packaged with royal roasted almonds, saffron infusion jar, and golden dried figs.",
     rating: 4.9,
