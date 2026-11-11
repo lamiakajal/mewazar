@@ -466,7 +466,7 @@ export const allProducts: Product[] = [
     category: "Dates",
     isFeatured: true,
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/ajwa-dates-madinah.webp"],
     description:
       "Soft, dark and gently sweet Ajwa dates with a rich fudge-like bite. Packed in a sealed tray to stay fresh.",
     rating: 4.9,
