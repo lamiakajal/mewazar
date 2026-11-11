@@ -548,7 +548,7 @@ export const allProducts: Product[] = [
     slug: "black-cumin-kalonji",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:cumin"],
+    images: ["/products/black-cumin-kalonji.webp"],
     description:
       "Aromatic whole kalonji seeds with a peppery, slightly bitter flavour for breads, pickles and curries.",
     rating: 4.7,
