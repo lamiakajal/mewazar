@@ -6,6 +6,8 @@ import { formatPrice } from "@/lib/format";
 import Order from "@/models/Order";
 import ProductModel from "@/models/Product";
 import { getSettings } from "@/lib/settings";
+import { getStaff } from "@/lib/admin";
+import { PERMISSIONS } from "@/lib/permissions";
 import ReviewModel from "@/models/Review";
 import ContactMessageModel from "@/models/ContactMessage";
 
@@ -17,7 +19,45 @@ const STATUS_STYLE: Record<string, string> = {
   cancelled: "bg-rose-100 text-rose-700",
 };
 
+const SECTION_LINKS: Record<string, string> = {
+  orders: "/admin/orders",
+  products: "/admin/products",
+  reviews: "/admin/reviews",
+  messages: "/admin/messages",
+  customers: "/admin/customers",
+  categories: "/admin/categories",
+  content: "/admin/content",
+};
+
 export default async function AdminDashboard() {
+  // Moderators get shortcuts to what they may do; revenue and settings stay with the owner
+  const staff = await getStaff();
+  if (staff && staff.role !== "admin") {
+    const mine = PERMISSIONS.filter((p) => staff.permissions.includes(p.key));
+    return (
+      <div className="space-y-6">
+        <div>
+          <h1 className="font-display text-3xl font-extrabold text-heading">Welcome, {staff.name}</h1>
+          <p className="mt-1 text-stone-600">You are a moderator. These are the areas the owner gave you.</p>
+        </div>
+        {mine.length === 0 ? (
+          <p className="rounded-2xl border border-dashed border-stone-300 bg-surface p-8 text-center text-stone-500">
+            You do not have any permissions yet. Ask the owner to give you access.
+          </p>
+        ) : (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {mine.map((p) => (
+              <Link key={p.key} href={SECTION_LINKS[p.key]} className="rounded-2xl border border-stone-200 bg-surface p-5 shadow-soft transition hover:border-gold-400">
+                <p className="font-display text-lg font-bold text-stone-900">{p.label}</p>
+                <p className="mt-1 text-sm text-stone-600">{p.desc}</p>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
   await connectToDatabase();
   const { inventory } = await getSettings();
 

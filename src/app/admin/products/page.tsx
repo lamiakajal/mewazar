@@ -1,4 +1,5 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import Link from "next/link";
 import { Pencil, Plus } from "lucide-react";
 import { connectToDatabase } from "@/lib/mongodb";
@@ -11,6 +12,7 @@ import { categoryByName } from "@/data/categories";
 import { getSettings } from "@/lib/settings";
 
 export default async function AdminProducts() {
+  await requirePage("products");
   await connectToDatabase();
   const [products, { categories }] = await Promise.all([
     ProductModel.find().sort({ sortOrder: 1, createdAt: 1 }).lean(),

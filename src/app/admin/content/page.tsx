@@ -1,10 +1,12 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { getSettings } from "@/lib/settings";
 import { PAGE_DEFAULTS } from "@/lib/page-defaults";
 import ContentEditor from "@/components/admin/ContentEditor";
 import type { PageKey } from "@/lib/settings-types";
 
 export default async function AdminContentPage() {
+  await requirePage("content");
   const settings = await getSettings();
 
   // Show the text that is live right now (the owner's text, or the built-in one)

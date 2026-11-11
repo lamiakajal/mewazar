@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import mongoose from "mongoose";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
 import { connectToDatabase } from "@/lib/mongodb";
 import ContactMessageModel from "@/models/ContactMessage";
 
 type Ctx = { params: Promise<{ id: string }> };
 
 async function guard(id: string) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("messages"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
   if (!mongoose.isValidObjectId(id)) return NextResponse.json({ error: "Invalid id" }, { status: 400 });

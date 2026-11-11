@@ -1,13 +1,13 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
 import { connectToDatabase } from "@/lib/mongodb";
 import ProductModel from "@/models/Product";
 import { allProducts } from "@/data/products";
 
 /** One-time import of the starter catalog into MongoDB. Skips products that already exist. */
 export async function POST() {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith("products"))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
 

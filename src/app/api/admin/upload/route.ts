@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getAdminEmail } from "@/lib/admin";
+import { getStaffWith } from "@/lib/admin";
 import { connectToDatabase } from "@/lib/mongodb";
 import ImageAsset from "@/models/ImageAsset";
 
@@ -14,7 +14,7 @@ function sniff(buf: Buffer): string | null {
 }
 
 export async function POST(req: Request) {
-  if (!(await getAdminEmail())) {
+  if (!(await getStaffWith(["products", "content"]))) {
     return NextResponse.json({ error: "Admin access required" }, { status: 403 });
   }
 
