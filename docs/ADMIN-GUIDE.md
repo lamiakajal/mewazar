@@ -49,6 +49,16 @@ To cancel an order choose **cancelled**. Stock and coins go back automatically.
 ## Customers
 **Customers** shows registered customers and their reward coins. You can add or remove coins with a note (for example a gift).
 
+## Staff (moderators)
+**Staff** is for the owner only. You can let helpers manage the shop without giving them everything.
+1. Press **Add a moderator**, type their **Google or GitHub email** and tick what they may do (orders, products and stock, reviews, messages, customers and coins, categories, content).
+2. Tell them to open `yourwebsite.com/admin` and sign in with **Google or GitHub using that same email** (a password login does not work for staff).
+3. Change their access or remove them at any time. Removing keeps their account as a normal customer.
+
+Moderators can never open **Settings** (payment accounts, coupons, delivery), **Staff** or **Activity**, and they do not see revenue on the dashboard.
+
+**Activity** lists the last 200 changes (who changed an order, product, review, coins, settings...). Use it to see what your helpers did.
+
 ## Tips
 - Changes appear on the store within about a minute.
 - Never share your admin Google account.
