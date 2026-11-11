@@ -73,7 +73,7 @@ export const allProducts: Product[] = [
     name: "Clover Blossom Raw Honey",
     slug: "clover-blossom-raw-honey",
     category: "Honey",
-    images: ["art:honey:honey"],
+    images: ["/products/clover-blossom-raw-honey.webp"],
     description:
       "Classic mild golden honey harvested from sunny clover meadows. Smooth floral finish perfect for teas and baking.",
     rating: 4.7,
