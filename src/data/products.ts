@@ -362,7 +362,7 @@ export const allProducts: Product[] = [
     name: "Royal Dry Fruit Gift Hamper",
     slug: "royal-dry-fruit-gift-hamper",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/royal-dry-fruit-gift-hamper.webp"],
     description:
       "Handcrafted pine-wood chest loaded with 4 partitioned compartments containing premium cashews, pistachios, raisins, and walnuts.",
     rating: 5.0,
