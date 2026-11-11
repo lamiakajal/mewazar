@@ -742,7 +742,7 @@ export const allProducts: Product[] = [
     slug: "crunchy-peanut-butter",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/crunchy-peanut-butter.webp"],
     description:
       "Roasted peanuts ground in small batches, with real crunchy pieces and no added oil or sugar.",
     rating: 4.7,
