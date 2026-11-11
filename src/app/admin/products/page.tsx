@@ -26,12 +26,15 @@ export default async function AdminProducts() {
           <h1 className="font-display text-3xl font-extrabold text-heading">Products</h1>
           <p className="mt-1 text-stone-600">{products.length} products. Changes go live within a minute.</p>
         </div>
+        <div className="flex flex-wrap items-center gap-3">
+          {products.length > 0 && <SeedButton mode="photos" />}
         <Link
           href="/admin/products/new"
           className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-white transition hover:bg-primary-hover"
         >
           <Plus className="h-4 w-4" /> Add product
         </Link>
+        </div>
       </div>
 
       {products.length === 0 && (
