@@ -299,7 +299,7 @@ export const allProducts: Product[] = [
     name: "Organic Chia & Basil Seeds Trio",
     slug: "chia-basil-seeds-trio",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/chia-basil-seeds-trio.webp"],
     description:
       "Cleaned, raw whole black chia seeds and sweet tukhm-e-balanga. Essential morning companion for weight balance.",
     rating: 4.8,
