@@ -123,7 +123,7 @@ export const allProducts: Product[] = [
     name: "Kaghzi Badam (Soft Shell Pakistani Almonds)",
     slug: "kaghzi-badam-soft-shell-almonds",
     category: "Nuts",
-    images: ["art:nuts:almond"],
+    images: ["/products/kaghzi-badam-soft-shell-almonds.webp"],
     description:
       "Native Balochistan paper-shell almonds easily cracked with bare fingers. Rich aroma with high oil concentration.",
     rating: 4.9,
