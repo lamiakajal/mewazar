@@ -218,7 +218,7 @@ export const allProducts: Product[] = [
     name: "Sundried Afghan Green Raisins (Kishmish)",
     slug: "sundried-afghan-green-raisins",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:graisin"],
+    images: ["/products/sundried-afghan-green-raisins.webp"],
     description:
       "Extra long green raisins naturally dried under warm alpine sun. Sweet, seedless, and loaded with natural iron.",
     rating: 4.8,
