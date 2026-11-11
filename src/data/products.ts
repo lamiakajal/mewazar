@@ -330,7 +330,7 @@ export const allProducts: Product[] = [
     name: "Golden Raw Flaxseeds (Alsi)",
     slug: "golden-raw-flaxseeds-alsi",
     category: "Seeds",
-    images: ["art:seeds:seed"],
+    images: ["/products/golden-raw-flaxseeds-alsi.webp"],
     description:
       "High-lignan golden flaxseeds packed with soluble dietary fiber and cardiovascular support nutrients.",
     rating: 4.6,
