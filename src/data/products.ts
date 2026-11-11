@@ -531,7 +531,7 @@ export const allProducts: Product[] = [
     category: "Spices",
     isFeatured: true,
     isNew: true,
-    images: ["art:spices:saffron"],
+    images: ["/products/kashmiri-mongra-saffron.webp"],
     description:
       "Deep red, hand-picked saffron threads with a strong aroma and colour. A few strands go a long way.",
     rating: 5.0,
