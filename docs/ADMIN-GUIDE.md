@@ -22,6 +22,7 @@ To cancel an order choose **cancelled**. Stock and coins go back automatically.
 **Products > Add product.** Fill in the name, category, description, pack sizes (for example 250g, 500g, 1kg) with prices and stock. Press **Upload from device** for photos (or paste an image link). The first photo is the main one.
 
 - **Run a sale:** type the old, higher price in **Old price**. Customers see it crossed out with a % badge. Clear it to end the sale.
+- **Apply starter photos:** the Products page has an **Apply starter photos** button. It puts the supplied photos on products that still show an illustration and lists the best-looking products first. Photos you uploaded yourself are never replaced. Replace the starter photos with your own before launch (see `docs/PRODUCT-PHOTOS.md`).
 - **Hide a product** with *Visible in store* off. **Best seller** shows it on the home page.
 - Stock reaching 0 shows *Out of stock* automatically.
 
