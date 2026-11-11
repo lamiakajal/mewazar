@@ -498,7 +498,7 @@ export const allProducts: Product[] = [
     slug: "mabroom-premium-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/mabroom-premium-dates.webp"],
     description:
       "Long, chewy and mildly sweet dates with a deep caramel flavour, hand-sorted for size and softness.",
     rating: 4.7,
