@@ -726,7 +726,7 @@ export const allProducts: Product[] = [
     slug: "stone-ground-almond-butter",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/stone-ground-almond-butter.webp"],
     description:
       "Smooth, roasted almond butter with nothing added except a pinch of salt. Stir before you spread.",
     rating: 4.8,
@@ -742,7 +742,7 @@ export const allProducts: Product[] = [
     slug: "crunchy-peanut-butter",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/crunchy-peanut-butter.webp"],
     description:
       "Roasted peanuts ground in small batches, with real crunchy pieces and no added oil or sugar.",
     rating: 4.7,
@@ -758,7 +758,7 @@ export const allProducts: Product[] = [
     slug: "walnut-date-spread",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/walnut-date-spread.webp"],
     description:
       "A thick, naturally sweet spread of mountain walnuts and soft dates. Great on toast and parathas.",
     rating: 4.6,
@@ -773,7 +773,7 @@ export const allProducts: Product[] = [
     slug: "honey-hazelnut-spread",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/honey-hazelnut-spread.webp"],
     description:
       "Roasted hazelnuts blended with raw honey into a silky spread with no palm oil.",
     rating: 4.8,
