@@ -1,10 +1,12 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { connectToDatabase } from "@/lib/mongodb";
 import Order from "@/models/Order";
 import OrdersManager, { AdminOrder } from "@/components/admin/OrdersManager";
 import { getSettings } from "@/lib/settings";
 
 export default async function AdminOrdersPage() {
+  await requirePage("orders");
   await connectToDatabase();
   const [docs, settings] = await Promise.all([
     Order.find().sort({ createdAt: -1 }).limit(200).lean(),

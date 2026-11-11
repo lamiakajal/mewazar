@@ -1,10 +1,12 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { connectToDatabase } from "@/lib/mongodb";
 import { getSettings } from "@/lib/settings";
 import ProductModel from "@/models/Product";
 import CategoriesManager from "@/components/admin/CategoriesManager";
 
 export default async function AdminCategoriesPage() {
+  await requirePage("categories");
   await connectToDatabase();
   const [settings, rows] = await Promise.all([
     getSettings(),

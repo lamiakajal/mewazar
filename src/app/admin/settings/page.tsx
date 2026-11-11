@@ -1,9 +1,11 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { getSettings } from "@/lib/settings";
 import SettingsEditor from "@/components/admin/SettingsEditor";
 import { listConfiguredGateways } from "@/lib/payments/registry";
 
 export default async function AdminSettingsPage() {
+  await requirePage("owner");
   const settings = await getSettings();
 
   return (

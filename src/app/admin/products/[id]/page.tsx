@@ -1,10 +1,12 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { notFound } from "next/navigation";
 import { connectToDatabase } from "@/lib/mongodb";
 import ProductModel from "@/models/Product";
 import ProductEditor from "@/components/admin/ProductEditor";
 
 export default async function EditProductPage({ params }: { params: Promise<{ id: string }> }) {
+  await requirePage("products");
   const { id } = await params;
   await connectToDatabase();
   const product = await ProductModel.findOne({ id }).lean();

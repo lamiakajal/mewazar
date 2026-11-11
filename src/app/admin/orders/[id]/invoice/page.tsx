@@ -1,4 +1,5 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { notFound } from "next/navigation";
 import mongoose from "mongoose";
 import { connectToDatabase } from "@/lib/mongodb";
@@ -12,6 +13,7 @@ export const metadata = { title: "Invoice", robots: { index: false } };
 
 /** Printable invoice and packing slip. Use the browser's Print (or Save as PDF). */
 export default async function InvoicePage({ params }: { params: Promise<{ id: string }> }) {
+  await requirePage("orders");
   const { id } = await params;
   if (!mongoose.isValidObjectId(id)) notFound();
 

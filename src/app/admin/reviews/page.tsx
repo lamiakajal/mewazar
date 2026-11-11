@@ -1,9 +1,11 @@
 import React from "react";
+import { requirePage } from "@/lib/admin-page";
 import { connectToDatabase } from "@/lib/mongodb";
 import ReviewModel from "@/models/Review";
 import ReviewsManager, { AdminReview } from "@/components/admin/ReviewsManager";
 
 export default async function AdminReviewsPage() {
+  await requirePage("reviews");
   await connectToDatabase();
   // Waiting reviews first, then the newest published ones
   const docs = await ReviewModel.find().sort({ status: -1, createdAt: -1 }).limit(200).lean();
