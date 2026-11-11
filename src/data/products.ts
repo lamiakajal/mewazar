@@ -250,7 +250,7 @@ export const allProducts: Product[] = [
     name: "Dried Seedless Turkish Apricots",
     slug: "dried-seedless-turkish-apricots",
     category: "Dry Fruits",
-    images: ["art:dry-fruits:apricot"],
+    images: ["/products/dried-seedless-turkish-apricots.webp"],
     description:
       "Golden sweet sundried whole apricots. Moist, tender, and rich in natural Vitamin A and dietary fiber.",
     rating: 4.7,
