@@ -4,9 +4,9 @@ export const allProducts: Product[] = [
   // Products with the best photos come first (see docs/PRODUCT-PHOTOS.md)
   {
     id: "prod-2",
-    isFeatured: true,
     name: "Sidr (Beri) Honey Premium Blend",
     slug: "sidr-beri-honey-premium",
+    isFeatured: true,
     category: "Honey",
     images: ["/products/sidr-beri-honey-premium.webp"],
     description:
@@ -23,6 +23,7 @@ export const allProducts: Product[] = [
     id: "prod-3",
     name: "Organic Acacia White Flower Honey",
     slug: "organic-acacia-white-flower-honey",
+    isFeatured: true,
     category: "Honey",
     images: ["/products/organic-acacia-white-flower-honey.webp"],
     description:
@@ -39,6 +40,7 @@ export const allProducts: Product[] = [
     id: "prod-8",
     name: "Kaghzi Badam (Soft Shell Pakistani Almonds)",
     slug: "kaghzi-badam-soft-shell-almonds",
+    isFeatured: true,
     category: "Nuts",
     images: ["/products/kaghzi-badam-soft-shell-almonds.webp"],
     description:
@@ -54,6 +56,7 @@ export const allProducts: Product[] = [
     id: "prod-9",
     name: "Roasted Salted Pistachios (Pista)",
     slug: "roasted-salted-pistachios",
+    isFeatured: true,
     category: "Nuts",
     images: ["/products/roasted-salted-pistachios.webp"],
     description:
@@ -70,6 +73,7 @@ export const allProducts: Product[] = [
     id: "prod-10",
     name: "Whole Roasted Cashews (Kaju)",
     slug: "whole-roasted-cashews-kaju",
+    isFeatured: true,
     category: "Nuts",
     images: ["/products/whole-roasted-cashews-kaju.webp"],
     description:
@@ -99,9 +103,9 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-13",
-    isFeatured: true,
     name: "Mountain Walnuts (Akhrot Giri)",
     slug: "mountain-walnuts-akhrot",
+    isFeatured: true,
     category: "Dry Fruits",
     images: ["/products/mountain-walnuts-akhrot.webp"],
     description:
@@ -118,6 +122,7 @@ export const allProducts: Product[] = [
     id: "prod-15",
     name: "Kandahar Dried Organic Figs (Anjeer)",
     slug: "kandahar-dried-organic-figs-anjeer",
+    isFeatured: true,
     category: "Dry Fruits",
     images: ["/products/kandahar-dried-organic-figs-anjeer.webp"],
     description:
@@ -134,6 +139,7 @@ export const allProducts: Product[] = [
     id: "prod-25",
     name: "Imperial Saffron & Nut Treasure Box",
     slug: "imperial-saffron-nut-treasure-box",
+    isFeatured: true,
     category: "Gift Boxes",
     images: ["/products/imperial-saffron-nut-treasure-box.webp"],
     description:
@@ -146,8 +152,8 @@ export const allProducts: Product[] = [
     id: "prod-35",
     name: "Kashmiri Mongra Saffron",
     slug: "kashmiri-mongra-saffron",
-    category: "Spices",
     isFeatured: true,
+    category: "Spices",
     isNew: true,
     images: ["/products/kashmiri-mongra-saffron.webp"],
     description:
@@ -196,8 +202,8 @@ export const allProducts: Product[] = [
     id: "prod-39",
     name: "Kashmiri Kahwa Tea",
     slug: "kashmiri-kahwa-tea",
-    category: "Tea",
     isFeatured: true,
+    category: "Tea",
     isNew: true,
     images: ["/products/kashmiri-kahwa-tea.webp"],
     description:
@@ -229,8 +235,8 @@ export const allProducts: Product[] = [
     id: "prod-43",
     name: "Pure Desi Cow Ghee",
     slug: "pure-desi-cow-ghee",
-    category: "Oils & Ghee",
     isFeatured: true,
+    category: "Oils & Ghee",
     isNew: true,
     images: ["/products/pure-desi-cow-ghee.webp"],
     description:
@@ -278,6 +284,7 @@ export const allProducts: Product[] = [
     id: "prod-47",
     name: "Stone-Ground Almond Butter",
     slug: "stone-ground-almond-butter",
+    isFeatured: true,
     category: "Spreads",
     isNew: true,
     images: ["/products/stone-ground-almond-butter.webp"],
@@ -308,7 +315,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-1",
-    isFeatured: true,
     name: "Kashmiri Organic Wild Honey",
     slug: "kashmiri-organic-wild-honey",
     category: "Honey",
@@ -357,7 +363,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-6",
-    isFeatured: true,
     name: "Raw Honeycomb with Pure Mountain Nectar",
     slug: "raw-honeycomb-pure-mountain-nectar",
     category: "Honey",
@@ -373,7 +378,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-7",
-    isFeatured: true,
     name: "California Jumbo Almonds (Giri)",
     slug: "california-jumbo-almonds",
     category: "Nuts",
@@ -453,7 +457,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-18",
-    isFeatured: true,
     name: "Medjool Luxury Dates (Khajoor)",
     slug: "medjool-luxury-dates-khajoor",
     category: "Dates",
@@ -530,7 +533,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-23",
-    isFeatured: true,
     name: "Royal Dry Fruit Gift Hamper",
     slug: "royal-dry-fruit-gift-hamper",
     category: "Gift Boxes",
@@ -700,7 +702,6 @@ export const allProducts: Product[] = [
   },
   {
     id: "prod-30",
-    isFeatured: true,
     name: "Winter Warmth Traditional Pack",
     slug: "winter-warmth-traditional-pack",
     category: "Combos",
@@ -716,7 +717,6 @@ export const allProducts: Product[] = [
     name: "Ajwa Dates of Madinah",
     slug: "ajwa-dates-madinah",
     category: "Dates",
-    isFeatured: true,
     isNew: true,
     images: ["/products/ajwa-dates-madinah.webp"],
     description:
