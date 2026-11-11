@@ -401,7 +401,7 @@ export const allProducts: Product[] = [
     name: "Corporate Executive Gift Platter",
     slug: "corporate-executive-gift-platter",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/corporate-executive-gift-platter.webp"],
     description:
       "Laser-etched bamboo presentation platter arranged with premium dry fruit assortment and miniature pure Sidr honey jar.",
     rating: 4.8,
