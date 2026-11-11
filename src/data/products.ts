@@ -580,7 +580,7 @@ export const allProducts: Product[] = [
     slug: "green-cardamom-elaichi",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:cardamom"],
+    images: ["/products/green-cardamom-elaichi.webp"],
     description:
       "Plump, fragrant green pods for chai, desserts and rice dishes. Sealed in an airtight tin to lock in aroma.",
     rating: 4.8,
