@@ -564,7 +564,7 @@ export const allProducts: Product[] = [
     slug: "himalayan-pink-salt-coarse",
     category: "Spices",
     isNew: true,
-    images: ["art:spices:salt"],
+    images: ["/products/himalayan-pink-salt-coarse.webp"],
     description:
       "Coarse mineral-rich crystals for grinders and everyday cooking. Unrefined and free from additives.",
     rating: 4.8,
