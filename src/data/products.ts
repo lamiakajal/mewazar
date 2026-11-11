@@ -662,7 +662,7 @@ export const allProducts: Product[] = [
     category: "Oils & Ghee",
     isFeatured: true,
     isNew: true,
-    images: ["art:oils-ghee:ghee"],
+    images: ["/products/pure-desi-cow-ghee.webp"],
     description:
       "Slow-simmered desi ghee with a nutty aroma and a grainy, golden texture. Made in small batches.",
     rating: 4.9,
@@ -678,7 +678,7 @@ export const allProducts: Product[] = [
     slug: "cold-pressed-black-seed-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/cold-pressed-black-seed-oil.webp"],
     description:
       "Dark, bold oil pressed from kalonji seeds at low temperature, bottled in amber glass.",
     rating: 4.7,
@@ -694,7 +694,7 @@ export const allProducts: Product[] = [
     slug: "extra-virgin-olive-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/extra-virgin-olive-oil.webp"],
     description:
       "Fruity, peppery first cold-press oil for salads, dips and finishing. Stored in a dark bottle.",
     rating: 4.8,
@@ -710,7 +710,7 @@ export const allProducts: Product[] = [
     slug: "cold-pressed-almond-oil",
     category: "Oils & Ghee",
     isNew: true,
-    images: ["art:oils-ghee:oil"],
+    images: ["/products/cold-pressed-almond-oil.webp"],
     description:
       "Light, nutty almond oil for cooking, baking and everyday use. Pressed without solvents or heat.",
     rating: 4.7,
