@@ -389,7 +389,7 @@ export const allProducts: Product[] = [
     name: "Imperial Saffron & Nut Treasure Box",
     slug: "imperial-saffron-nut-treasure-box",
     category: "Gift Boxes",
-    images: ["art:gift-boxes:gift"],
+    images: ["/products/imperial-saffron-nut-treasure-box.webp"],
     description:
       "Exclusive artisanal gold-foil embossed box featuring 2g pure Kashmiri Mongra Saffron, jumbo pistachios, and roasted cashews.",
     rating: 5.0,
