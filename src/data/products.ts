@@ -597,7 +597,7 @@ export const allProducts: Product[] = [
     category: "Tea",
     isFeatured: true,
     isNew: true,
-    images: ["art:tea:leaf"],
+    images: ["/products/kashmiri-kahwa-tea.webp"],
     description:
       "Traditional green tea blended with saffron, cardamom and cinnamon. Brew it with a spoon of honey.",
     rating: 4.9,
