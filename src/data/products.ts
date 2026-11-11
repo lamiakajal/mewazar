@@ -758,7 +758,7 @@ export const allProducts: Product[] = [
     slug: "walnut-date-spread",
     category: "Spreads",
     isNew: true,
-    images: ["art:spreads:butter"],
+    images: ["/products/walnut-date-spread.webp"],
     description:
       "A thick, naturally sweet spread of mountain walnuts and soft dates. Great on toast and parathas.",
     rating: 4.6,
