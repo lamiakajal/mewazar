@@ -283,7 +283,7 @@ export const allProducts: Product[] = [
     name: "Medjool Luxury Dates (Khajoor)",
     slug: "medjool-luxury-dates-khajoor",
     category: "Dates",
-    images: ["art:dates:date"],
+    images: ["/products/medjool-luxury-dates-khajoor.webp"],
     description:
       "King of Dates: Large, plump, naturally caramel-sweet fruit with velvety soft texture. Handpicked during peak harvest.",
     rating: 5.0,
@@ -466,7 +466,7 @@ export const allProducts: Product[] = [
     category: "Dates",
     isFeatured: true,
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/ajwa-dates-madinah.webp"],
     description:
       "Soft, dark and gently sweet Ajwa dates with a rich fudge-like bite. Packed in a sealed tray to stay fresh.",
     rating: 4.9,
@@ -482,7 +482,7 @@ export const allProducts: Product[] = [
     slug: "sukkari-golden-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/sukkari-golden-dates.webp"],
     description:
       "Honey-sweet, crisp-edged golden dates that melt in the mouth. A favourite for iftar tables and gifting.",
     rating: 4.8,
@@ -498,7 +498,7 @@ export const allProducts: Product[] = [
     slug: "mabroom-premium-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/mabroom-premium-dates.webp"],
     description:
       "Long, chewy and mildly sweet dates with a deep caramel flavour, hand-sorted for size and softness.",
     rating: 4.7,
@@ -514,7 +514,7 @@ export const allProducts: Product[] = [
     slug: "khudri-soft-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/khudri-soft-dates.webp"],
     description:
       "Everyday soft dates with a toffee-like taste and a tender skin. Great for smoothies and baking.",
     rating: 4.6,
