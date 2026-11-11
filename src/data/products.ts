@@ -283,7 +283,7 @@ export const allProducts: Product[] = [
     name: "Medjool Luxury Dates (Khajoor)",
     slug: "medjool-luxury-dates-khajoor",
     category: "Dates",
-    images: ["art:dates:date"],
+    images: ["/products/medjool-luxury-dates-khajoor.webp"],
     description:
       "King of Dates: Large, plump, naturally caramel-sweet fruit with velvety soft texture. Handpicked during peak harvest.",
     rating: 5.0,
