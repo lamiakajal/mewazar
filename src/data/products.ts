@@ -482,7 +482,7 @@ export const allProducts: Product[] = [
     slug: "sukkari-golden-dates",
     category: "Dates",
     isNew: true,
-    images: ["art:dates:date"],
+    images: ["/products/sukkari-golden-dates.webp"],
     description:
       "Honey-sweet, crisp-edged golden dates that melt in the mouth. A favourite for iftar tables and gifting.",
     rating: 4.8,
